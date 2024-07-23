@@ -25,6 +25,8 @@ options(kable_styling_bootstrap_options = c("hover", "striped"))
 
 library(tidyverse)
 library(kableExtra)
+
+theme_set(theme_bw(base_size = 14))
 ```
 
 <!-- ## Biology Context: Chytrid Fungus in Frogs -->
@@ -100,18 +102,15 @@ my_dists %>%
     x = "π",
     y = ""
   ) + 
-  ylim(c(-0.2, 3)) + 
-  theme_bw()
+  ylim(c(-0.2, 3))
   
 ```
 
 :::{.callout-note}
 ## Shape of Prior
 
-The Beta-distribution we use here is commonly used with binomial data. It is determined by two shape parameters `alpha` ($\alpha$) and `beta` ($\beta$). We can think of $\alpha$ as the number of previously observed successes and $\beta$ as the number of previously observed failures. With $\alpha = 1$ and $\beta = 1$ we have a prior that allows for both successes and failures ($\pi \neq 0$ and $\pi \neq 1$) but which has very little certainty about the true value of $\pi$.
+The Beta-distribution we use here is commonly used with binomial data. It is determined by two shape parameters `alpha` ($\alpha$) and `beta` ($\beta$). We can think of $\alpha$ as the number of previously observed successes and $\beta$ as the number of previously observed failures. With $\alpha = 1$ and $\beta = 1$, we have a prior that allows for both successes and failures ($\pi \neq 0$ and $\pi \neq 1$) but which has no other certainty about the true value of $\pi$.
 :::
-
-Notice in the prior distribution that all values of $\pi$ are equally likely. In the code to generate the `my_prior` data frame, you can think of the first argument as the probability of a success, the second argument as the number of prior successes observed, and the third argument as the number of prior failures observed. Choosing a prior with two observations, one success and one failure results in this uniform prior.
 
 ## Observed Data
 
@@ -137,9 +136,11 @@ print(paste0("Of the ", num_frogs,
              num_pos, "."))
 ```
 
-## Update to Posterior
+## Obtaining the Posterior
 
-Now we'll use our data to update the prior distribution.
+Now we'll use our data to update the *prior* distribution and obtain the *posterior* distribution for our population proportion. We obtain the posterior distribution by multiplying the prior by the *likelihood* function and then dividing by a normalizing factor to ensure that the result is a probability density (that is, the total probability is 1). The likelihood measures the probability of observing our data at each possible value of the population proportion. 
+
+$$\underbrace{\mathbb{P}\left[\text{proportion} | \text{data}\right]}_{\text{posterior}} = \frac{\overbrace{\mathbb{P}\left[\text{data} | \text{proportion}\right]}^{\text{likelihood}}\cdot \overbrace{\mathbb{P}\left[\text{proportion}\right]}^{\text{prior}}}{\underbrace{\mathbb{P}\left[\text{data}\right]}_{\text{normalizing factor}}}$$
 
 ```{r}
 my_dists <- my_dists %>%
@@ -161,8 +162,7 @@ my_dists %>%
     title = "Prior and Posterior Distributions",
     x = "π",
     y = ""
-  ) + 
-  theme_bw()
+  )
 ```
 
 Notice that, after seeing the data, our *posterior* estimate for the proportion of frogs impacted by Chytrid has been updated. It looks very unlikely that $\pi$ is less than 0.25 (those population proportions seem incompatible with our observed data), and the most likely proportions are between 0.5 and 0.8.
@@ -227,8 +227,7 @@ my_dists %>%
     title = "Prior Distribution",
     x = "π",
     y = ""
-  ) + 
-  theme_bw()
+  )
 ```
 
 > **Question:** How does this prior compare to our original prior? Use your understanding of `alpha` and `beta` to justify what you are seeing.
@@ -278,8 +277,7 @@ my_dists %>%
     title = "Prior and Posterior Distributions",
     x = "π",
     y = ""
-  ) + 
-  theme_bw()
+  )
 ```
 
 Run the code block below to compute the *credible interval*.
