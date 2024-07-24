@@ -206,14 +206,17 @@ bounds %>%
   kable_styling(bootstrap_options = c("hover", "striped"))
 ```
 
-We can see that the estimated lower bound of our 95% credible interval for $\pi$ is `r bounds %>%
-slice(1) %>% pull(pi)` and the upper bound is `r bounds %>% slice(n()) %>% pull(pi)`
+We can see that the estimated lower bound of our 95% credible interval for $\pi$ is `r bounds %>% slice(1) %>% pull(pi)` and the upper bound is `r bounds %>% slice(n()) %>% pull(pi)`. We can interpret this to mean that *there is about a 95% probability that the proportion of frogs in southern New Hampshire is between `r bounds %>% slice(1) %>% pull(pi)` and `r bounds %>% slice(n()) %>% pull(pi)`*.
+
+Note that the interpretation of the *credible interval* differs from the interpretation of the Frequentist's *confidence interval*.
 
 ## Investigating Further
 
-Now that you've seen one Bayesian analysis to estimate the proportion of frogs impacted by Chytrid, let's reproduce the analysis and explore the impact of (i) choice of prior, and (ii) strength of data.
+Now that you've seen one Bayesian analysis to estimate the proportion of frogs impacted by Chytrid, let's reproduce the analysis and explore the impact of (i) choice of prior, (ii) strength of data, and (iii) the combination of data and prior.
 
-### The Effect of the Chosen Prior
+:::{.panel-tabset}
+
+## Influence of the Prior
 
 In this section, you'll have an opportunity to reproduce the analysis above, but with a different choice of prior distribution on $\pi$.
 
@@ -333,7 +336,7 @@ bounds
 Recall that our original credible interval for $\pi$, with the uninformative prior, were `r bounds %>%
 slice(1) %>% pull(pi)` and `r bounds %>% slice(n()) %>% pull(pi)`, respectively. The new bounds differ because of the prior we chose.
 
-### The Effect of the Data
+## Influence of Data
 
 In this section you'll have an opportunity to reproduce the analysis above, but with different data sources for updating. In particular, you'll explore the impact that the number of observations can have on the posterior distribution.
 
@@ -343,7 +346,7 @@ In this section you'll have an opportunity to reproduce the analysis above, but 
 [This is a placeholder for now...] Dr. Duryea's students have finished processing their most recent collection of samples. She has provided us with a larger collection of observed data. Let's see the impact that this larger data set has on updating the prior distribution.
 :::
 
-:::{.callout-caution, collapse = TRUE}
+:::{.callout-caution}
 ## A Question about Activity Design
 
 The correct thing to do here would be to use this new data to update our previous posterior distribution. This adds more complexity/intricacy to the activity though. What is the tradeoff between explaining a second update to the posterior versus going back to the original prior and updating it with all of the observed data? With the beta-binomial the results will be the same but I don't want to build bad habits/poor understanding by taking a simplistic approach here.
@@ -357,7 +360,7 @@ Possible paths forward:
 + Explain that statistical inference can be an iterative process in which we continue updating our understanding as new data is collected. Replace the prior with the posterior and use the data to update again.
 
   + **Drawbacks:** This masks the takeaway that I'm trying to lead students to -- lots of data can have great influence in updating the posterior. Perhaps we can accomplish both goals if the initial set of observations is small enough.
-  
+
 :::
 
 The code chunk below is set to create a weakly informative prior that assumes a population proportion of chytrid fungus infection of 60%, backed by a total of 10 observations. Run the code to construct and visualize this prior.
@@ -466,6 +469,9 @@ bounds
 
 Check back on the bounds for your credible interval from the previous section of this activity. The new bounds differ because of the amount of data used to update the prior.
 
-### Invitation to Revisit: Different Priors and Different Data
+## Combined Influence
 
 Now that you've seen how different priors and different data (separately) result in different inferences, return to the previous section and examine how stronger priors (for example `alpha = 600` and `beta = 400`) interact with our data to influence our inference.
+
+:::
+
