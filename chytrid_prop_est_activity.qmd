@@ -39,9 +39,6 @@ theme_set(theme_bw(base_size = 14))
 + Students discover the impact of choice of prior on their plausible range.
 + Students discover the impact of amount of data on their plausible range.
 
-**Learning Objectives:**  This activity addresses the following learning objectives:
-
-+ 
 
 **Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
 
