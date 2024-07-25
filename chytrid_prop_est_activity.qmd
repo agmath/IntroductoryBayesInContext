@@ -39,6 +39,22 @@ theme_set(theme_bw(base_size = 14))
 + Students discover the impact of choice of prior on their plausible range.
 + Students discover the impact of amount of data on their plausible range.
 
+**Learning Objectives:**  This activity addresses the following learning objectives:
+
++ 
+
+**Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
+
++ Students will evaluate a research question using appropriate statistical techniques
++ Students will correctly identify the type of data they are working with
++ Students will evaluate literature and/or prior research to generate hypotheses for a research question
++ Students will learn about different statistical models and approaches
++ Students will interpret coefficients from a statistical model
++ Students will evaluate the underlying assumptions of a statistical approach
++ Students will examine the ecological impact of different pathogens, both native and introduced
++ Students will consider the ethical implications of statistical approaches
++ Students will gather data using methodologies appropriate to the context
+
 **Outline:** The following is a loose outline to this project. The idea is to use this in-class on the day that follows the Topic 11 notebook on inference for categorical data.
 
 + Context is Chytrid Fungus in NH frogs
