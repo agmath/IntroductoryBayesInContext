@@ -29,7 +29,7 @@ We believe there are multiple benefits associated with the dispersion of these a
 
 ## What Adopters Will Need
 
-We want to reach as wide an audience as possible with these activities. For these reason, no specialised hardware or software will be required. All activities will be freely-available via a web browser. The activities will be written using `{webR}`, which allows anyone to execute R code on a webpage. No prior exposure (at all) to R will be required or assumed to engage with these activities; instead, a willingness to experiment with making changes is all that is necessary. 
+We want to reach as wide an audience as possible with these activities. For these reasons, no specialised hardware or software will be required. All activities will be freely-available via a web browser. The activities will be written using `{webR}`, which allows anyone to execute R code on a webpage. No prior exposure (at all) to R will be required or assumed to engage with these activities; instead, a willingness to experiment with making changes is all that is necessary. 
 
 ## Draft Timeline
 
@@ -42,9 +42,7 @@ The following is a preliminary timeline for discussion purposes only. We will up
   + Activity objectives associated with *Bayesian thinking*
   + Outline of the basic analysis
   + Identification of the major tasks and exercises embedded within the activity
-  
 + Build a shareable draft proof of concept, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators.
-  
 + Engage in Preliminary discussions with discipline-specific faculty as potential partners
 
   + We expect that this objective will be ongoing
@@ -61,7 +59,6 @@ The following is a preliminary timeline for discussion purposes only. We will up
 + Drafts of the first activity in-context across at least three disciplines
 
   + Including discipline-specific objectives for the activity
-  
 + Drafts of additional activities across our three (or more) identified partner disciplines
 
 **December 2024:** By the end of December, we hope to have completed each of the following.
