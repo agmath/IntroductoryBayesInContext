@@ -1,5 +1,6 @@
 ---
 title: "Introductory Bayes In Context"
+draft: true
 format: html
 date: "August 21, 2024"
 date-modified: today
@@ -26,7 +27,9 @@ We believe there are multiple benefits associated with the dispersion of these a
 
 We want to reach as wide an audience as possible with these activities. For these reason, no specialised hardware or software will be required. All activities will be freely-available via a web browser. The activities will be written using `{webR}`, which allows anyone to execute R code on a webpage. No prior exposure (at all) to R will be required or assumed to engage with these activities; instead, a willingness to experiment with making changes is all that is necessary. 
 
-## Timeline
+## Draft Timeline
+
+The following is a preliminary timeline for discussion purposes only. We will update this timeline once we have settled on scope, deliverables, and an estimated launch date.
 
 **September 2024:** The following items will be completed by the end of September.
 
