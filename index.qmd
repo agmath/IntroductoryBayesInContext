@@ -9,7 +9,11 @@ theme: flatly
 toc: true
 ---
 
+:::{.callout-note}
+
 This is a homepage for *Introductory Bayes in Context* [placeholder title], a project to bring foundational components of Bayesian thinking and analysis to undergraduate students within their home disciplines. This project is being led by Adam Gilbert (Southern New Hampshire University) and Laura Lambert (James Madison University), and it is mentored by Jingchen (Monika) Hu (Vassar College). We are part of the Bayes-BATS initiative, sponsored by the [NSF IUSE: EHR program](https://www.nsf.gov/pubs/2021/nsf21579/nsf21579.htm) with award numbers 2215879, 2215920, and 2215709. 
+
+:::
 
 ## About
 
