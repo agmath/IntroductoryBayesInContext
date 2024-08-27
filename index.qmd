@@ -79,9 +79,7 @@ The following is a preliminary timeline for discussion purposes only. We will up
 + Biology with Dr. Katie Duryea, *Estimating and Comparing the Prevalence of Chytrid Fungus Infections in Frogs Across Ponds*
 + More disciplines to come, including (but not limited to) Psychology, Sociology, Criminal Justice, Political Science, and Economics.
 
-*** 
-
-### Funding 
+## Funding 
 
 The BATS program is supported by the [NSF IUSE: EHR program](https://www.nsf.gov/pubs/2021/nsf21579/nsf21579.htm) with award numbers 2215879, 2215920, and 2215709
 
