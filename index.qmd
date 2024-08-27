@@ -1,7 +1,9 @@
 ---
 title: "Introductory Bayes In Context"
 draft: true
-format: html
+format: 
+  html: default
+  pdf: default
 date: "August 21, 2024"
 date-modified: today
 date-format: long
