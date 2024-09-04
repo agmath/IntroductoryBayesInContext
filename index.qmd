@@ -44,7 +44,7 @@ The following is a preliminary timeline for discussion purposes only. We will up
   + Activity objectives associated with *Bayesian thinking*
   + Outline of the basic analysis
   + Identification of the major tasks and exercises embedded within the activity
-+ Build a shareable draft proof of concept, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators.
++ Begin construction of a shareable draft *proof of concept*, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators.
 + Engage in Preliminary discussions with discipline-specific faculty as potential partners
 
   + We expect that this objective will be ongoing
@@ -52,20 +52,20 @@ The following is a preliminary timeline for discussion purposes only. We will up
 **October 2024:** By the end of October, we hope to have the following completed.
 
 + Draft context-free versions of at least the first two activities (*Prior to Posterior* and *Extracting and Interpreting Plausible Intervals*)
-+ Identification of at least three collaborators across different domain disciplines
++ Begin discussions with potential collaborators across different domain disciplines
 + A completed version of the *Prior to Posterior* activity within the *Chytrid Fungus* context, which will serve as an example for other domain-specific versions of all three activities
 
 **November 2024:** By the end of November, we hope to have the following items.
 
 + Finalized context-free drafts of all three of the activities
-+ Drafts of the first activity in-context across at least three disciplines
++ Drafts of the first activity in-context across the disciplines in which we have collaborators
 
   + Including discipline-specific objectives for the activity
-+ Drafts of additional activities across our three (or more) identified partner disciplines
++ Begin drafts of additional activities within our existing collaborators' domains
 
 **December 2024:** By the end of December, we hope to have completed each of the following.
 
-+ Finalized versions, ready to pilot, of at least two of the activities within each of our identified partner disciplines
++ Finalized versions of activities with collaborators who are willing and able to pilot one or more of the activities in a spring 2025 course
 + Drafts, at a minimum, of the third activity for each of our partner disciplines
 + Identified at least two new contexts within which to develop our three activities
 
