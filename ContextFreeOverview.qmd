@@ -1,0 +1,48 @@
+---
+title: "Proposed Activity Outlines"
+format: html
+theme: flatly
+draft: true
+toc: true
+date: today
+date-format: long
+author: 
+  - name: "Adam Gilbert"
+    affiliations: 
+      - name: "Southern New Hampshire University"
+  - name: "Laura Lambert"
+    affiliations: 
+      - name: "James Madison University"
+---
+
+## About
+
+This document contains high-level draft outlines of the Bayesian concepts introduced and explored during each of our three initial classroom activities. The outlines here are for the *context-free* skeletons that will serve as the underlying framework that the discipline-specific activities will be built on top of.
+
+## Activity 1: From the Prior to the Posterior
+
+This activity introduces learners to the notion of the *prior distribution* and the *posterior distribution*. We expect that this may be the learners' first exposure to Bayesian methods, so the following concepts will be introduced and explained.
+
++ The *prior distribution*
++ The *posterior distribution*
++ The *likelihood function*
++ How the *posterior* distribution is obtained by multiplying the *prior* distribution by the *likelihood*
+
+Beyond the initial exposure to the topics/concepts above, learners investigate three major questions in this activity.
+
+1. How can the choice of *prior* influence the resulting *posterior* distribution?
+2. How can the amount of data collected influence the resulting *posterior* distribution?
+3. How do the choice of *prior* distribution and the *observed data* interact to influence the resulting *posterior* distribution?
+
+## Activity 2: Estimating a Parameter with Credible Intervals
+
+In this activity, we review the ideas from our first activity. Essential topics are the *prior* distribution and the *posterior* distribution. After a brief review, students are exposed to the notion of the *credible interval*. 
+
+The main questions students will explore in this activity are:
+
+1. What effect does the desired containment probability have on the bounds for the credible interval?
+2. Is the credible interval symmetric about a point estimate?
+3. Must the credible interval contain the point estimate obtained from sample data?
+
+## Activity 3: Comparing Two Populations with Tests of Hypotheses
+
