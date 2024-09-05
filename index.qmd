@@ -19,7 +19,7 @@ This is a homepage for *Introductory Bayes in Context* [placeholder title], a pr
 
 ## About
 
-The goal of *Introductory Bayes in Context* is to provide discipline-specific activities covering foundational Bayesian topics. These topics include (i) the notion of (and relationship between) the *prior* and *posterior*, (ii) extracting and interpreting *plausible intervals* from a posterior distribution, and (iii) Bayesian approaches to hypothesis tests comparing two populations. We will develop a basic framework for each of three activities corresponding to these listed topics and then partner with faculty from different disciplines to overlay a relevant and meaningful context onto that frame.
+The goal of *Introductory Bayes in Context* is to provide discipline-specific activities covering foundational Bayesian topics. These topics include (i) the notion of (and relationship between) the *prior* and *posterior*, (ii) extracting and interpreting *credible intervals* from a posterior distribution, and (iii) Bayesian approaches to hypothesis tests comparing two populations. We will develop a basic framework for each of three activities corresponding to these listed topics and then partner with faculty from different disciplines to overlay a relevant and meaningful context onto that frame.
 
 ## Why?
 
@@ -51,7 +51,7 @@ The following is a preliminary timeline for discussion purposes only. We will up
   
 **October 2024:** By the end of October, we hope to have the following completed.
 
-+ Draft context-free versions of at least the first two activities (*Prior to Posterior* and *Extracting and Interpreting Plausible Intervals*)
++ Draft context-free versions of at least the first two activities (*Prior to Posterior* and *Extracting and Interpreting Credible Intervals*)
 + Begin discussions with potential collaborators across different domain disciplines
 + A completed version of the *Prior to Posterior* activity within the *Chytrid Fungus* context, which will serve as an example for other domain-specific versions of all three activities
 
