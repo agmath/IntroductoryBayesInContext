@@ -46,3 +46,11 @@ The main questions students will explore in this activity are:
 
 ## Activity 3: Comparing Two Populations with Tests of Hypotheses
 
+In this activity, we will use Bayesian methods to compare the means of two different populations (similar data situation to the frequentist Independent samples t-test).  Concepts such as the *prior* and the *posterior* distributions will be briefly reviewed, as well as *credible intervals*.  The focus of this activity will be on how to determine if two populations are different or not, and what pieces of evidence should be examined when drawing conclusions.
+
+The main questions students will explore in this activity are:
+
+1.  What pieces of evidence should we use to check for convergence?
+2.  How would we use *posterior probability* to examine if there is a difference in the means of two populations? 
+3.  How do we use the credibility interval to determine if there is a difference in means?
+
