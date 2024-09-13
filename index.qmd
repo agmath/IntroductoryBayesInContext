@@ -47,7 +47,8 @@ The following is a preliminary timeline for discussion purposes only. We will up
   + **Draft:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeOverview.html)
 + Begin construction of a shareable draft *proof of concept*, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators.
 
-  + **Draft:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html).
+  + **Draft Context-Free:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html)
+  + **Draft with Context:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html)
 + Engage in Preliminary discussions with discipline-specific faculty as potential partners
 
   + We expect that this objective will be ongoing
