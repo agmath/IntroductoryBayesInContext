@@ -4,7 +4,8 @@ format: html
 theme: flatly
 draft: true
 toc: true
-date: today
+date: "09/13/2024"
+date-modified: today
 date-format: long
 author: 
   - name: "Adam Gilbert"
@@ -34,7 +35,7 @@ theme_set(theme_bw(base_size = 14))
 
 :::{.callout-note}
 ## Context-Free Activity
-This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We've designed this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A [rough draft completed activity is available here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html).
+This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A [rough draft completed activity is available here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html).
 :::
 
 ## About
@@ -42,12 +43,10 @@ This activity is a *context-free scaffold*. You'll almost surely find it to be i
 **Statistics Goals:** The statistics-focused goals of this activity are as follows:
 
 + Introduce students to the foundational aspects of Bayesian Inference as an alternative to Frequentist methods.
-
   + In particular, students discover and examine what a *parameter distribution* is.
 + Students discover the notion and impact of the choice of a *prior* distribution on the resulting *posterior* parameter distribution.
 + Students discover the impact of amount of data on the resulting *posterior* parameter distribution.
 + Students experiment with how the choice of *prior* parameter distribution and data interact to influence the resulting *posterior* parameter distribution.
-
 
 **Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
 
@@ -61,7 +60,7 @@ This activity is a *context-free scaffold*. You'll almost surely find it to be i
 + Students will consider the ethical implications of statistical approaches
 + Students will gather data using methodologies appropriate to the context
 
-<font color="purple">**Subject-Area Objectives:** This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover both objectives associated with their course as well as embedding Bayesian thinking.</font>
+<font color="purple">**Subject-Area Objectives:** This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover objectives associated with their course while embedding Bayesian thinking.</font>
 
 ## Background Information
 

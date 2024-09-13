@@ -10,6 +10,9 @@ authors:
     affiliations: James Madison University
 format: html
 theme: flatly
+date: "9/13/2024"
+date-modified: today
+date-format: long
 toc: true
 engine: knitr
 webr:
@@ -34,7 +37,7 @@ theme_set(theme_bw(base_size = 14))
 
 :::{.callout-note}
 ## Sample Activity 1 (Biology Context)
-This activity is a sample of our first activity (*From the Prior to the Posterior*) with a biology context laid over the framework. This sample has been constructed with the help of Dr. Katie Duryea, a member of the Biology faculty at Southern New Hampshire University. This sample activity provides an example of what versions of this activity from other domains/contexts will look like.
+This activity is a sample of our first activity (*From the Prior to the Posterior*) with a biology context laid over the framework. This sample has been constructed with coauthor Dr. Katie Duryea, a member of the Biology faculty at Southern New Hampshire University. This sample activity provides an example of what versions of this activity from other domains/contexts may look like.
 :::
 
 # About this Notebook
