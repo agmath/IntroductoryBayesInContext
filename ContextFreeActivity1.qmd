@@ -34,7 +34,7 @@ theme_set(theme_bw(base_size = 14))
 
 :::{.callout-note}
 ## Context-Free Activity
-This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We've designed this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. An example of a [draft completed activity is available here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html).
+This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We've designed this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A [rough draft completed activity is available here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html).
 :::
 
 ## About
