@@ -58,15 +58,13 @@ This activity is a sample of our first activity (*From the Prior to the Posterio
 + Students will consider the ethical implications of statistical approaches
 + Students will gather data using methodologies appropriate to the context
 
-**Outline:** The following is a loose outline to this project. The idea is to use this in-class on the day that follows the Topic 11 notebook on inference for categorical data.
-
-+ Context is Chytrid Fungus in NH frogs
-+ We search for the population parameter of frogs with Chytrid
-+ The notebook begins with a short overview of the Chytrid Fungus project.
-+ A sample analysis is conducted with a very uninformative prior.
-+ Students then update the analysis to use a more appropriate prior which is supported by current research.
+**Biology-Objectives:** I'll work with Katie to add drafts of these objectives.
 
 ## Background Information
+
+The following subsections outline the background information for this activity from both a statistics and domain-specific lens.
+
+### Data Analysis and Bayesian Thinking
 
 There are many statistical tools which can be used to test hypotheses about population parameters. Broadly speaking, these tools fall into three categories:
 
@@ -76,19 +74,9 @@ There are many statistical tools which can be used to test hypotheses about popu
 
 Perhaps you've encountered frequentist methods previously. These methods depend on distribution assumptions and the Central Limit Theorem. In this notebook, we'll introduce Bayesian methods. In particular, you'll explore how your prior belief (controlled via your choice of *prior distribution*) and the strength of your observed data work together to produce updated beliefs (a *posterior distribution*).
 
-<!-- Some background connecting what we are doing here to what we've done so far...
+In *Bayesian inference*, we approach our tasks with some prior belief about the value of our population parameter. This is natural, because it matches our lived experience as humans. We use that prior belief, in conjunction with our data, to produce an updated version of our beliefs. Again, likely matching our individual approaches to interacting with the world we live in.
 
-+ In our course, we focus on the *frequentist* approach to statistics and inference.
-
-  + In the *frequentist* approach, the observed data completely determines the inferences we make. 
-
-+ There are other approaches to statistics and inference -- one of which is *Bayesian*.
-
-  + In *Bayesian inference*, we approach our tasks with some prior belief about the value of our population parameter.
-  + We use that prior belief, in conjunction with our data, to produce an updated version of our beliefs.
-
-In this interactive notebook, you'll see the Bayesian approach to inference on a population proportion in action. You'll explore how your prior belief (controlled via your choice of *prior distribution*) and the strength of your observed data work together to produce updated beliefs.
--->
+In this interactive notebook, you'll see the foundations of the Bayesian approach to inference on a [choose the parameter relevant to the context: (population proportion / population mean)] in action. You'll explore how your prior belief (controlled via your choice of *prior distribution*) and the strength of your observed data work together to produce updated beliefs.
 
 ### About Chytrid
 

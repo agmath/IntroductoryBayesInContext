@@ -79,7 +79,7 @@ Perhaps you've encountered frequentist methods previously. These methods depend 
 
 In *Bayesian inference*, we approach our tasks with some prior belief about the value of our population parameter. This is natural, because it matches our lived experience as humans. We use that prior belief, in conjunction with our data, to produce an updated version of our beliefs. Again, likely matching our individual approaches to interacting with the world we live in.
 
-In this interactive notebook, you'll see the Bayesian approach to inference on a [choose the parameter relevant to the context: (population proportion / population mean)] in action. You'll explore how your prior belief (controlled via your choice of *prior distribution*) and the strength of your observed data work together to produce updated beliefs.
+In this interactive notebook, you'll see the foundations of the Bayesian approach to inference on a [choose the parameter relevant to the context: (population proportion / population mean)] in action. You'll explore how your prior belief (controlled via your choice of *prior distribution*) and the strength of your observed data work together to produce updated beliefs.
 
 ### About the Context
 
