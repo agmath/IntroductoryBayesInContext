@@ -40,7 +40,8 @@ theme_set(theme_bw(base_size = 14))
 This activity is a sample of our first activity (*From the Prior to the Posterior*) with a biology context laid over the framework. This sample has been constructed with coauthor Dr. Katie Duryea, a member of the Biology faculty at Southern New Hampshire University. This sample activity provides an example of what versions of this activity from other domains/contexts may look like.
 :::
 
-# About this Notebook
+
+## Goals and Objectives
 
 **Goals:** The goals of this activity are as follows:
 
@@ -95,7 +96,7 @@ Chytrid fungus is an infectious fungal disease that can be fatal to amphibians a
 
 Let's try to estimate the proportion of frogs in southern New Hampshire which are impacted by chytrid fungus.
 
-### Prior Assumptions
+## Prior Assumptions
 
 Perhaps today is our first time learning about chytrid fungus and frogs. We may have no expectation about what our population proportion ($\pi$) might be. In the Frequentist approach, we would let the data completely determine the inference we make about the proportion. In Bayesian inference, we take a different approach and assign a prior distribution over the population proportion we are looking for. Since today is the first we've heard of Chytrid, let's set up a prior that indicates nearly all values of $\pi$ are equally likely.
 
