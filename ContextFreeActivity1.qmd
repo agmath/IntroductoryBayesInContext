@@ -56,7 +56,6 @@ This activity is a *context-free scaffold*. You'll almost surely find it to be i
 + Students will learn about different statistical models and approaches
 + Students will interpret coefficients from a statistical model
 + Students will evaluate the underlying assumptions of a statistical approach
-+ Students will examine the ecological impact of different pathogens, both native and introduced
 + Students will consider the ethical implications of statistical approaches
 + Students will gather data using methodologies appropriate to the context
 
@@ -348,6 +347,8 @@ Possible paths forward:
 + Explain that statistical inference can be an iterative process in which we continue updating our understanding as new data is collected. Replace the prior with the posterior and use the data to update again.
 
   + **Drawbacks:** This might mask the takeaway that we are trying to lead students to – lots of data can have great influence in updating to the posterior. Perhaps we can accomplish both goals if the initial set of observations is small enough.
+  
+Laura's response:  I would err on the side of good practice, even if it complicates things.  Alternatively, what if we had a side-by-side: update with little data, update with lots of data - see difference?  Or would that be massively confusing?
 :::
 
 <font color="purple">The code chunk below is set to create a weakly informative prior that assumes the additional information we received from the previous scenario, but from a small sample. For now we set a prior from 10 observations with 6 positive results, for illustration purposes.</font>
