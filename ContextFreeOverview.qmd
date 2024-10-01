@@ -1,8 +1,9 @@
 ---
 title: "Proposed Activity Outlines"
-format: html
+format: 
+  html: default
+  pdf: default
 theme: flatly
-draft: true
 toc: true
 date: today
 date-format: long
@@ -33,6 +34,14 @@ Beyond the initial exposure to the topics/concepts above, learners investigate t
 1. How can the choice of *prior* influence the resulting *posterior* distribution?
 2. How can the amount of data collected influence the resulting *posterior* distribution?
 3. How do the choice of *prior* distribution and the *observed data* interact to influence the resulting *posterior* distribution?
+
+**Bayesian Thinking Objectives:** Upon completion of the activity, learners should be able to:
+
+1. Explain the concept of a *prior distribution* and its significance in Bayesian analysis, highlighting how it reflects initial beliefs before considering the observed data.
+2. Explain the role of a *posterior distribution* in Bayesian analysis, and articulate how it results from the combination of the prior distribution and the observed data.
+3. Demonstrate how to adjust the strength of a beta-prior, and analyze how varying the strength of the prior influences the posterior distribution.
+4. Evaluate how the quantity of observed data impacts the posterior distribution, and explain how more or less data modifies the influence of the prior.
+5. Analyze how the interplay between prior strength and data quantity shapes the posterior distribution, focusing on how these elements jointly determine the final Bayesian update.
 
 ## Activity 2: Estimating a Parameter with Credible Intervals
 

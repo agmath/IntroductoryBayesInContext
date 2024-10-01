@@ -1,0 +1,60 @@
+---
+title: "Introductory Bayes In Context"
+draft: true
+format: 
+  pdf: default
+date: today
+date-format: long
+theme: flatly
+toc: true
+---
+
+## October 2024 Progress Report
+
+This is a formal progress report on the *Introductory Bayes in Context* project submitted by Adam Gilbert and Laura Lambert as part of Tier 2 of the Bayes-BATS workshop. This document outlines what we set out to accomplish in September 2024, where we stand on those tasks, and what our priorities for October 2024 will be.
+
+### September 2024 Tasks and Progress
+
+On our original proposed timeline, we set out to complete the following items by the end of September.
+
+1. Outline skeletons for each of the three underlying activities  
+    + Identify activity objectives associated with *Bayesian Thinking*
+    + Provide an outline of the basic analysis to be done throughout the activity
+    + Identify the major tasks and embedded, interactive exercises within the activity
+  
+2. Begin construction of a shareable draft *proof of concept*, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators
+3. Engage in preliminary discussions with discipline-specific faculty as potential partners
+
+We are pleased to report that we are "on-track" with all of these items. 
+
+1. Regarding the first task of *outlining skeletons for all three activities*, [we have done so here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeOverview.html).  
+    + We **still need to** formalize the *Bayesian thinking* objectives for each activity.
+    + We have also identified a fourth activity which addresses model construction and have begun working on the skeleton for that activity as well.
+2. Regarding the second task of *beginning construction of a shareable proof of concept*, we have that completed.  
+    + [See the context-free draft here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html)
+    + [See the version with a biological context here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html)  
+      + We are working with Dr. Katie Duryea on editing this activity so that it is a completely polished product.
+3. Regarding the final task of *engaging in preliminary discussions with discipline-specific faculty*, we are currently discussing the project with three faculty members who have expressed interest in strands of these activities for their classrooms.  
+    + Katie Duryea (Biology) developing for use as a module in a 400-level Biostatistics and Bioinformatics class
+    + Ann Nordmeyer (Psychology) considering development for use in an introductory psychology statistics course as an exposure to Bayesian methods
+    + A third faculty member at James Madison University interested in developing a hierarchical modeling activity for use in their course
+
+## October 2024 Goals
+
+We have a good head start on our goals for October. The goals laid out in our original timeline are to:
+
+1. Create context-free versions of at least the first two activities
+2. Begin discussions with potential collaborators across different disciplines
+3. Have a completed version of the first activity within the Chytrid Fungus context
+
+Currently, we have a completed *context-free* version of our first activity. Our goal with these context-free activities is to make it very easy for an individual in a particular domain area to take the context-free version and weave context from their discipline into it. We currently have highlighted areas in the context-free activity, showing where these collaborators would add their own discussions and potentially make updates to existing code. We are soliciting feedback from Katie Duryea regarding how easy that context-free activity is to navigate.
+
+We have already begun conversations with three potential collaborators. At least one (Katie Duryea) plans to pilot these activities in a Spring 2025 course. Another (Ann Nordmeyer) will need a longer lead-time, so we are discussing a pilot during the 2025-2026 academic year.
+
+For the Chytrid Fungus activity, we are working with Katie to have her make updates to the current version of the Chytrid Fungus proof of concept activity that we've drafted. Katie will clean up that document, clarify and correct the discussions pertaining to biology, and add in functionality that allows students to read in actual data from her Chytrid Fungus study.
+
+## Funding 
+
+The BATS program is supported by the [NSF IUSE: EHR program](https://www.nsf.gov/pubs/2021/nsf21579/nsf21579.htm) with award numbers 2215879, 2215920, and 2215709
+
+
