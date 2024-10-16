@@ -62,7 +62,29 @@ Things to consider:
 The following subsections outline the background information for this activity from both a statistics and domain-specific lens. 
 
 ### Data Analysis and Bayesian Thinking
+Now that you have learned about the prior and posterior, as well as credible intervals, you might be curious about how you would use this information to evaluate your data.  We will start with continuous data, and try to determine if a value can be thought to reasonably come from a distribution or not.
 
+We will be using data from <font color="purple">[the context variable]</font>, which is continuous data.  To evaluate this, we need a prior model that will accurately reflect our data, and a *conjugate* posterior.  
+
+:::{.callout-note}
+## Conjugacy
+
+Given:
+ + the prior model for parameter $\theta$ has a pdf $f(\theta)$ 
+ + the model of data $Y$ conditioned on $\theta$ has the likelihood function $L(\theta \mid y)$
+
+If the resulting posterior model with pdf $f(\theta \mid y) \propto f(\theta)L(\theta \mid y)$ is from the same model family as the prior, we would say it is a **conjugate prior**
+:::
+
+:::{.callout-caution}
+## Internal note to Adam:
+I really like how the bayesrules book did the note above - it's lifted not quite verbatim, but very close.  Not sure how to properly cite that, or if it would be necessary since it's 'common' Bayes knowledge?
+
+:::
+
+Some examples of conjugate families are the beta-binomial model, gamma-poisson model, and normal-normal model.  Why do we care if our posterior and prior model are conjugates?  Having a conjugate family makes computation easier as well as making a more interpretable posterior.  If we do not have a conjugate prior, it becomes very challenging to determine how the prior information and the data have contributed to the posterior model.
+
+As we move into analysis, we will also be considering more priors.  Using the normal distribution as our model (discussed further below), we will be considering priors for both the mean and standard deviation of this distribution.  Some of the necessary sampling procedures will not be discussed in-depth here; if you wish to learn more about the math behind the inferences, there are many good resources to choose from!
 
 ### About the Context
 
@@ -70,4 +92,64 @@ The following subsections outline the background information for this activity f
 
 ### Purpose
 
-Let's try to estimate the <font color="purple">[population parameter in context]</font>.
+Let's try to determine if the mean value of <font color="purple">[experimental variable]</font> is different from prior research, which determined it to be <font color="purple">[value]</font>.
+
+## Observed Data
+
+<font color="purple">In this section, we either generate, read, or collect data which we'll use to update our chosen prior distribution. The code chunk below is a placeholder which simulates new observed data from our population. As mentioned, there are several options for how this section on *Observed Data* can be treated.
+
++ Observed data can be simulated, as in the code chunk below.
++ Observed data can be read in from a location on the web (for example, a GitHub repository). This could be data from a study, a publication, your own research, etc.
++ Observed data can be collected in class and manually input into the `observation` column of the *tibble* below.</font>
+
+We will first examine our data, and determine if a normal prior would be appropriate to use here.
+
+```{r}
+nobs <- 75
+set.seed(123456)
+my_data <- tibble(
+  obs_id = 1:nobs,
+  observation = rnorm(n = nobs,
+                      mean = 8.5,
+                      sd = 1)
+)
+
+```
+The code below will generate a histogram of <font color="purple">[variable]</font>.  Looking at the plot, we can determine that the data are approximately normally distributed.    
+```{r}
+ggplot(data = my_data) + 
+  geom_histogram(aes(x = observation), bins = 50)
+```
+
+We can also calculate the mean and standard deviation of the data:
+
+```{r}
+mean_obs <- my_data$observation |>
+  mean() |>
+  round(4)
+
+sd_obs <- my_data$observation |>
+  sd() |>
+  round(4)
+
+print(paste0("For the 'observation' variable the mean was ",
+             mean_obs,
+             " and the standard deviation was ",
+             sd_obs,
+             "."))
+```
+
+### Data Model
+When we have normally distributed data, we use the Normal model with two parameters: the mean and standard deviation.  The Normal model can be represented as: $$Y \sim N(\mu,\sigma^{2})$$
+
+:::{.callout-caution}
+## Reflection Question
+Think about the values the mean and standard deviation can take.  Are they the same?  Why might they be different?
+:::
+
+Since we do not know the true values of either the mean or the standard deviation, we will be using a joint prior distribution of 
+$$f(\mu, \sigma^{2}) = f(\mu)f(\sigma^{2})$$
+With priors of:
+$$\mu \sim Normal(\theta, \tau^{2})$$
+$$\frac{1}{\sigma^{2}} \sim Gamma(\alpha, \beta)$$
+
