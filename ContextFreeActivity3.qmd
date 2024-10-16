@@ -152,4 +152,37 @@ $$f(\mu, \sigma^{2}) = f(\mu)f(\sigma^{2})$$
 With priors of:
 $$\mu \sim Normal(\theta, \tau^{2})$$
 $$\frac{1}{\sigma^{2}} \sim Gamma(\alpha, \beta)$$
+Let's start with no prior information.  Perhaps we haven't gathered any data yet, or are exploring a new area of study.  To do this, we'll use some non-informative priors for our mean and standard deviation.  
 
+:::{.callout-caution}
+## Internal note to Adam:
+Here, we'll need something non-informative, but that may also depend on the value being chosen for the context.  A range of 100-500 would be very not okay if we are seeing if the mean is different than, say, 0.4.
+
+I'm running with a 'non-informative' mean of 10 and sd of 1 for now.
+
+Another note: webr doesn't want to run for me in .qmd - need to troubleshoot?
+
+:::
+Run the code below to generate an initial fit for the model
+```{webr-r}
+fit <- brm(data = my_data, family = gaussian(),
+           observation ~ 1, #Here, we are only going to estimate a mean (i.e. the Intercept) and variance
+           prior = c(
+            prior(normal(10,1), class = Intercept), 
+              #The prior for mu has a mean of 10 and a sd of 1
+            prior(cauchy(0,40), class = sigma)
+              #The prior for sigma is half of a center 0, scale 40 Cauchy distribution
+                )
+)
+
+```
+
+## Checking Convergence
+
+### Trace Plots
+
+### R-hat
+
+### Effective Sample Size
+
+## Analysis: Is our mean different than [value]?
