@@ -29,6 +29,7 @@ options(kable_styling_bootstrap_options = c("hover", "striped"))
 library(tidyverse)
 library(kableExtra)
 library(brms)
+library(bayesplot)
 
 theme_set(theme_bw(base_size = 14))
 ```
@@ -211,8 +212,31 @@ rhat(fit)
 ```
 
 ### Effective Sample Size
-Due to the nature of simulated draws from a posterior (sampling), the samples end up being correlated rather than independent.  Just *how*
+Due to the nature of simulated draws from a posterior (sampling), the samples end up being correlated rather than independent - there is some degree of autocorrelation.  We can begin to get an idea as to the degree of autocorrelation by examining the *effective sample size (ESS)*.  The ESS is how many independent samples you would need in order to accurately approximate the posterior.  
+
+If the effective sample size is smaller than the actual sample size, that is an indication that the sampling is not very effecient. 
+
+There are two measures of ESS that we will look at: the `Bulk_ESS` and `Tail_ESS`.  The bulk ESS is most pertinent to the effeciency of mean or median estimates - estimates where the bulk of a distribution is.  Tail ESS, on the other hand, is most pertinent for determining efficiency at the talks of the variance - where a 95% Credible Interval will be.
+
+We can also measure the ESS ratio to quantify the number of independent samples it would take to produce an equivalently accurate posterior approximation. As long as the ratio is greater than 0.1, we would consider that 'good enough'.  
+
+The code below shows how to generate the ESS for the Intercept.  Notice how it is being run on the fit object we made earlier and the parameter(s) of interest.  Run this code - is the ratio greater than 0.1?  What if you change it to the `sigma` parameter?  Is this ratio greater than 0.1?
+
+```{webr-r}
+#Calculate the ESS ratio
+neff_ratio(fit, pars = c("Intercept"))
+```
 
 ### Autocorrelation
+Looking at the autocorrelation more directly is another way to determine if the each chain is mimicing the behavior of an independent sample.  Due to the nature of sampling, some autocorrelation is to be expected.  However, it is expected to fade out.  In other words, we might expect chain 2 to be dependent on chain 1, and chain 3 to be dependent on chain 2, and slightly dependent on chain 1.  
+
+We can examine an autocorrelation plot of our fit model and see how quickly the autocorrelation falls off.  Each chain (our model has 4) will have its own autocorrelation graph.  We expect it to be at 1 initially, then hope that it rapidly (steeply) decreases to around zero.  We also anticipate that the chains behave similarly.
+
+Run the code below to generate autocorrelation plots for the `Intercept` parameter for our fit object.  What do you observe?  Change the code to generate autocorrelation plots for the `sigma` parameter.
+
+```{webr-r}
+#Generate a lag graph
+mcmc_acf(fit, pars = "Intercept")
+```
 
 ## Analysis: Is our mean different than [value]?
