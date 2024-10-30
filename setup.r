@@ -1,5 +1,8 @@
 # A script to auto-setup for collaborators on Bayesian Thinking, In Context
 
+## Open the terminal tab in RStudio and 
+## run the following command: quarto add coatless/quarto-webr
+
 ## Check for and Install packages here...
 required_packages <- c("tidyverse", "kableExtra")
 
