@@ -81,7 +81,6 @@ Note: Description of conjugacy from Bayesrules book, Chapter 5
 :::
 
 
-
 Some examples of conjugate families are the beta-binomial model, gamma-poisson model, and normal-normal model.  Why do we care if our posterior and prior model are conjugates?  Having a conjugate family makes computation easier as well as making a more interpretable posterior.  If we do not have a conjugate prior, it becomes very challenging to determine how the prior information and the data have contributed to the posterior model.
 
 As we move into analysis, we will also be considering more priors.  Using the normal distribution as our model (discussed further below), we will be considering priors for both the mean and standard deviation of this distribution.  Some of the necessary sampling procedures will not be discussed in-depth here; if you wish to learn more about the math behind the inferences, there are many good resources to choose from!
@@ -228,7 +227,7 @@ neff_ratio(fit, pars = c("Intercept"))
 ```
 
 ### Autocorrelation
-Looking at the autocorrelation more directly is another way to determine if the each chain is mimicing the behavior of an independent sample.  Due to the nature of sampling, some autocorrelation is to be expected.  However, it is expected to fade out.  In other words, we might expect chain 2 to be dependent on chain 1, and chain 3 to be dependent on chain 2, and slightly dependent on chain 1.  
+Looking at the autocorrelation more directly is another way to determine if the each chain is mimicing the behavior of an independent sample.  Due to the nature of sampling, some autocorrelation is to be expected.  However, it is expected to fade out.  In other words, we might expect iteration 2 to be dependent on iteration 1, and iteration 3 to be dependent on iteration 2, and slightly dependent on iteration 1.  
 
 We can examine an autocorrelation plot of our fit model and see how quickly the autocorrelation falls off.  Each chain (our model has 4) will have its own autocorrelation graph.  We expect it to be at 1 initially, then hope that it rapidly (steeply) decreases to around zero.  We also anticipate that the chains behave similarly.
 
@@ -239,4 +238,32 @@ Run the code below to generate autocorrelation plots for the `Intercept` paramet
 mcmc_acf(fit, pars = "Intercept")
 ```
 
+:::{.callout-note}
+Looking at all of our data above, do you think we can proceed to evaluating our model?  Are there convergence concerns?
+:::
+
+
 ## Analysis: Is our mean different than [value]?
+Given that we do not have convergence concerns, we can move on to getting fit data from our model.  The code below will provide summary information for our model: the estimate, 95% Credible Intervals, Rhat, and ESS.
+
+```{webr-r}
+summary(fit)
+```
+
+Recall that our objective for this activity was to determine if the mean value of <font color="purple">[experimental variable]</font> is different from <font color="purple">[value]</font>.
+
+Notice how there is no p-value - how, then do we determine if there's a difference?  
+
+**THIS ISN'T WORKING**
+One way to determine if the mean is less than `value` is to calculate the fraction of posterior samples that are less than `value`.
+
+The code below will calculate this.
+
+```{webr-r}
+mean(as_draws_df(fit)$Intercept<11)
+```
+
+Another way to determine if the mean is less than `value` is to look at the 95% credible interval, and if `value` falls within it or not.  For our data, the 95% credible interval was `(8.29, 8.77)`, and since `value` **falls?** within the credible interval, we would conclude that the mean is **not?** less than `value`.
+
+
+
