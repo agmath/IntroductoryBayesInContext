@@ -55,6 +55,10 @@ Things to consider:
 
 **Statistics Goals:** The statistics-focused goals of this activity are as follows:
 
+  - Students will accurately test if a sampling procedure has adequately converged
+  - Students will describe how to determine the degree of autocorrelation in a chain
+  - Students will use Credible Intervals to reach conclusions about a sample mean
+  
 **Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
 
 <font color="purple">**Subject-Area Objectives:** This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover objectives associated with their course while embedding Bayesian thinking.</font>
