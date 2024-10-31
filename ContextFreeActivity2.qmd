@@ -7,7 +7,7 @@ toc: true
 date: "09/13/2024"
 date-modified: today
 date-format: long
-bibliography: act2bib.bib
+bibliography: act2bib.bibtex
 author: 
   - name: "Adam Gilbert"
     affiliations: 
@@ -33,6 +33,14 @@ library(kableExtra)
 library(bayesrules)
 
 theme_set(theme_bw(base_size = 14))
+
+
+##Need to deal with data "read in" via webr cells not available at render time.
+##This means inline R with that data and associated values is not possible.
+##For now, I'm just adding in the values to make this work -- I'll likely 
+##pre-read data in, compute the necessary values, and then remove the data frame
+new_obs <- 157
+new_pos <- 102
 ```
 
 :::{.callout-note}
@@ -95,9 +103,11 @@ In that activity, we did all of the Bayesian updating to obtain the prior "by ha
 
 ### Convenient Functionality from `{bayesrules}`
 
-Beginning with this activity, we'll shift to less transparent, but more convenient, functionality to conduct the Bayesian updating from here on out. The *Bayes Rules!* book written by Johnson, Ott, and Dogucu along with their corresponding `{bayesrules}` R package provides the excellent functionality that we'll benefit from.
+Beginning with this activity, we'll shift to less transparent, but more convenient, functionality to conduct the Bayesian updating from here on out. The *Bayes Rules! An Introduction to Bayesian Modeling* book written by Johnson, Ott, and Dogucu [@bayesrulesbook] along with their corresponding `{bayesrules}` R package [@bayesrulespkg] provides the excellent functionality that we'll benefit from.
 
 If you recall, in that first activity we had begun by assuming a completely uninformative prior -- <font color="purple">a beta distribution with one observed success and one observed failure</font>. We then updated that prior with our <font color="purple">initially observed data including eight (8) successes out of twelve (12) observations</font>. We can quickly obtain a plot of our *prior*, our data *likelihood*, our *posterior*, and some summary statistics just by using the `plot_beta_binomial()` and `summarize_beta_binomial()` functions from `{bayesrules}`.
+
+**Add paragraph with information about parameters for `plot_beta_binomial()` as well as the results from running that function -- what do the results "mean" and how can we utilize them?**
 
 ```{r}
 plot_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12)
@@ -105,7 +115,7 @@ plot_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12)
 
 From the plot above, we can see our assumed *prior* distribution in yellow and our *posterior* distribution in a purplish color. Note that the *posterior* and the scaled *likelihood* overlap exactly here because of our assumed uniform prior.
 
-Now we'll use `summarize_beta_binomial()` to obtain summary statistics on the *prior* and *posterior* distributions.
+Now we'll use `summarize_beta_binomial()` to obtain summary statistics on the *prior* and *posterior* distributions. **Add discussion about parameters for `plot_beta_binomial()` as well as the results from running that function -- what do the results "mean" and how can we utilize them?**
 
 ```{r}
 #| echo: true
@@ -157,6 +167,63 @@ While we are transitioning to the more "black box" functionality in this activit
 Take this opportunity to discuss what is happening "behind the scenes" when the `plot_beta_binomial()` function is run.
 :::
 
+## Parameter Estimation with Intervals
+
+Through the main section of this activity, you'll explore two types of intervals which can be used to estimate the location of a population parameter. The first is the *credible interval* (CIs), which is the Bayesian analog to the Frequentist's *confidence interval*. The second is the *highest density probability interval* (HDPIs), which may do a better job than the credible interval does at identifying the "most likely" location of the population parameter.
+
+Before we get into CIs and HDPIs, let's get ourselves back to where we were at the end of the last activity. <font color="purple">As you might remember, we obtained the following data. 
+
+As a reminder, we can set up this code chunk so that the data is
+
++ simulated, as in the code chunk below.
++ read in from a location on the web (for example, a GitHub repository). This could be data from a study, a publication, your own research, etc.
++ collected in class and manually input into the `status` column of the *tibble* below. 
+  
+  + This is an unlikely choice due to the relatively small sample size and time required to input data. This method could be accommodated if data is collected via a digital form and then read from a spreadsheet (ie. Google Forms/Sheets).
+
+The code below will be replaced based on the choice made above.
+</font>
+
+```{webr-r}
+new_obs <- 157
+set.seed(072324)
+my_data <- tibble(
+  obs_number = 1:new_obs,
+  status = sample(c("yes", "no"), 
+                  size = new_obs,
+                  prob = c(0.7, 0.3), 
+                  replace = TRUE)
+)
+
+num_pos <- my_data %>%
+  filter(status == "yes") %>%
+  nrow()
+
+print(paste0("Of the ", new_obs, 
+             " observations, there were ", 
+             num_pos, " positive responses."))
+```
+
+Use the `plot_beta_binomial()` and `summarize_beta_binomial()` functions in the code cell below to update your <font color="purple">weakly informative `beta(6, 4)` prior with these `r new_obs` observations including `r new_pos` positive outcomes.</font>
+
+```{webr-r}
+
+```
+
+:::{.callout-caution}
+## Reflection Question
+
+Visually and numerically, what insights do the results from these two function calls give you about the most likely values of your `<font color="purple">population parameter</font>?
+:::
+
+### Credible Intervals
+
+### Highest Density Probability Intervals
+
+## Summary
 
 ## References
 
+:::{.refs}
+
+:::
