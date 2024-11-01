@@ -3,6 +3,7 @@ title: "Introductory Bayes In Context"
 draft: true
 format: 
   pdf: default
+  html: default
 date: today
 date-format: long
 theme: flatly
@@ -21,7 +22,14 @@ In October, Adam and Laura set out to complete the following major tasks associa
 2. Begin work on the context-free version of our second activity.
 3. We'll provide Katie with her own branch in our GitHub repository. 
 
-We are pleased to report that we are mostly "on-track" with these items.
+<font color="purple">
+1. Finish formalizing the *Bayesian Thinking* objectives associated with each of our activities and add them to the skeleton document.
+2. Draft context-free versions of at least the first two activities (Prior to Posterior and Extracting and Interpreting Credible Intervals)
+3. Begin discussions with potential collaborators across different domain disciplines
+4. A completed version of the Prior to Posterior activity within the Chytrid Fungus context, which will serve as an example for other domain-specific versions of all three activities
+</font>
+
+We are pleased to report that we are mostly "on-track" with these items. <font color="purple">One pertinent note to make before reading on is that, while we sought out to finish drafts of our first two activities by the end of October, we have finished drafts of the first and third activities instead. That is, we've delivered two completed draft activities, but they are not the two we had initially indicated. When we reference *activities in complete draft form* in the sections that follow, we are referring to activities 1 and 3.</font>
 
 #### Bayesian Thinking Objectives
 
@@ -29,12 +37,20 @@ Bayesian thinking objectives have been fully written for both activities current
 
 #### Context-free second activity
 
+Proposing alternative heading 
+
+<font color="purple"> #### A Second Context-Free Activity (Activity 3)</font>
+
 A second activity has been completed in full draft form, along with a 50% complete draft of a third activity.  The second completed activity addresses how students might start to make conclusions using Bayes, and moves past computing 'by hand' and fully relies on functions within R.  It can be [seen at](https://github.com/agmath/Bayes-BATS-tier2/blob/main/ContextFreeActivity3.html) 
 
+
+<font color="purple">Should we remove the section below, or keep it? The separate GitHub Branch for each collaborator is something that I think we both envision in the near term (let me know if I am overstating your views here). Since we didn't include this item in our timeline, I wondered if we might remove it for now -- I'm happy with either removing or keeping it. </font>
 
 #### GitHub branch
 
 Due to time constraints, Katie has not had the opportunity to engage with a GitHub branch of her own.  There has been feedback from her regarding the activity and the context overlaying it, and we are feeling good about the state of both versions of activity one.
+
+<font color="purple"> If we do remove the section above, we could replace it with a section on the status of the *completed version of Activity 1 in the Chytrid Fungus* context that we envisioned. Some of what you mention above could be translated here. Katie hasn't had time to finalize the activity yet, but it is in a state which I feel comfortable sharing with potential collaborators.</font>
 
 #### Future Considerations
 
