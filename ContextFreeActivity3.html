@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -339,7 +339,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'brms'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -361,7 +361,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"context":"interactive","autorun":"false","editor-quick-suggestions":"false","out-height":"","fig-cap":"","dpi":72,"fig-width":7,"editor-max-height":"","read-only":"false","comment":"","classes":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","message":"true","label":"unnamed-chunk-1","results":"markup","output":"true","warning":"true","editor-font-scale":"1"},"code":"fit <- brm(data = my_data, family = gaussian(),\n           observation ~ 1, #Here, we are only going to estimate a mean (i.e. the Intercept) and variance\n           prior = c(\n            prior(normal(30,4), class = Intercept), \n              #The prior for mu has a mean of 30 and a sd of 4\n            prior(cauchy(0,40), class = sigma)\n              #The prior for sigma is half of a center 0, scale 40 Cauchy distribution\n                )\n)"},{"id":2,"options":{"context":"interactive","autorun":"false","editor-quick-suggestions":"false","out-height":"","fig-cap":"","dpi":72,"fig-width":7,"editor-max-height":"","read-only":"false","comment":"","classes":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","message":"true","label":"unnamed-chunk-2","results":"markup","output":"true","warning":"true","editor-font-scale":"1"},"code":"plot(fit)"},{"id":3,"options":{"context":"interactive","autorun":"false","editor-quick-suggestions":"false","out-height":"","fig-cap":"","dpi":72,"fig-width":7,"editor-max-height":"","read-only":"false","comment":"","classes":"","fig-height":5,"editor-word-wrap":"true","out-width":"700px","message":"true","label":"unnamed-chunk-3","results":"markup","output":"true","warning":"true","editor-font-scale":"1"},"code":"rhat(fit)"}];
+globalThis.qwebrCellDetails = [{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-1","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"fit <- brm(data = my_data, family = gaussian(),\n           observation ~ 1, #Here, we are only going to estimate a mean (i.e. the Intercept) and variance\n           prior = c(\n            prior(normal(30,4), class = Intercept), \n              #The prior for mu has a mean of 30 and a sd of 4\n            prior(cauchy(0,40), class = sigma)\n              #The prior for sigma is half of a center 0, scale 40 Cauchy distribution\n                )\n)","id":1},{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-2","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"plot(fit)","id":2},{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-3","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"rhat(fit)","id":3},{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-4","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"#Calculate the ESS ratio\nneff_ratio(fit, pars = c(\"Intercept\"))","id":4},{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-5","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"#Generate a lag graph\nmcmc_acf(fit, pars = \"Intercept\")","id":5},{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-6","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"summary(fit)","id":6},{"options":{"output":"true","out-width":"700px","context":"interactive","label":"unnamed-chunk-7","comment":"","editor-word-wrap":"true","message":"true","fig-height":5,"editor-max-height":"","fig-cap":"","autorun":"false","classes":"","warning":"true","dpi":72,"read-only":"false","editor-font-scale":"1","fig-width":7,"results":"markup","out-height":"","editor-quick-suggestions":"false"},"code":"mean(as_draws_df(fit)$Intercept<11)","id":7}];
 
 </script>
 <script type="module">
@@ -1948,7 +1948,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 23, 2024</p>
+      <p class="date-modified">November 1, 2024</p>
     </div>
   </div>
     
@@ -1995,6 +1995,11 @@ Discussion point:
 <section id="goals-and-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="goals-and-objectives">Goals and Objectives</h2>
 <p><strong>Statistics Goals:</strong> The statistics-focused goals of this activity are as follows:</p>
+<ul>
+<li>Students will accurately test if a sampling procedure has adequately converged</li>
+<li>Students will describe how to determine the degree of autocorrelation in a chain</li>
+<li>Students will use Credible Intervals to reach conclusions about a sample mean</li>
+</ul>
 <p><strong>Course Objectives:</strong> This activity would map to course-level objectives similar to the following. Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically. This is to give an idea as to the wide variety of contexts this activity might be placed in.</p>
 <p><font color="purple"><strong>Subject-Area Objectives:</strong> This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover objectives associated with their course while embedding Bayesian thinking.</font></p>
 </section>
@@ -2164,14 +2169,48 @@ Note
 </section>
 <section id="effective-sample-size" class="level3">
 <h3 class="anchored" data-anchor-id="effective-sample-size">Effective Sample Size</h3>
-<p>Due to the nature of simulated draws from a posterior (sampling), the samples end up being correlated rather than independent. Just <em>how</em></p>
+<p>Due to the nature of simulated draws from a posterior (sampling), the samples end up being correlated rather than independent - there is some degree of autocorrelation. We can begin to get an idea as to the degree of autocorrelation by examining the <em>effective sample size (ESS)</em>. The ESS is how many independent samples you would need in order to accurately approximate the posterior.</p>
+<p>If the effective sample size is smaller than the actual sample size, that is an indication that the sampling is not very effecient.</p>
+<p>There are two measures of ESS that we will look at: the <code>Bulk_ESS</code> and <code>Tail_ESS</code>. The bulk ESS is most pertinent to the effeciency of mean or median estimates - estimates where the bulk of a distribution is. Tail ESS, on the other hand, is most pertinent for determining efficiency at the talks of the variance - where a 95% Credible Interval will be.</p>
+<p>We can also measure the ESS ratio to quantify the number of independent samples it would take to produce an equivalently accurate posterior approximation. As long as the ratio is greater than 0.1, we would consider that ‘good enough’.</p>
+<p>The code below shows how to generate the ESS for the Intercept. Notice how it is being run on the fit object we made earlier and the parameter(s) of interest. Run this code - is the ratio greater than 0.1? What if you change it to the <code>sigma</code> parameter? Is this ratio greater than 0.1?</p>
+<div id="qwebr-insertion-location-4"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="autocorrelation" class="level3">
 <h3 class="anchored" data-anchor-id="autocorrelation">Autocorrelation</h3>
+<p>Looking at the autocorrelation more directly is another way to determine if the each chain is mimicing the behavior of an independent sample. Due to the nature of sampling, some autocorrelation is to be expected. However, it is expected to fade out. In other words, we might expect iteration 2 to be dependent on iteration 1, and iteration 3 to be dependent on iteration 2, and slightly dependent on iteration 1.</p>
+<p>We can examine an autocorrelation plot of our fit model and see how quickly the autocorrelation falls off. Each chain (our model has 4) will have its own autocorrelation graph. We expect it to be at 1 initially, then hope that it rapidly (steeply) decreases to around zero. We also anticipate that the chains behave similarly.</p>
+<p>Run the code below to generate autocorrelation plots for the <code>Intercept</code> parameter for our fit object. What do you observe? Change the code to generate autocorrelation plots for the <code>sigma</code> parameter.</p>
+<div id="qwebr-insertion-location-5"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Looking at all of our data above, do you think we can proceed to evaluating our model? Are there convergence concerns?</p>
+</div>
+</div>
 </section>
 </section>
 <section id="analysis-is-our-mean-different-than-value" class="level2">
 <h2 class="anchored" data-anchor-id="analysis-is-our-mean-different-than-value">Analysis: Is our mean different than [value]?</h2>
+<p>Given that we do not have convergence concerns, we can move on to getting fit data from our model. The code below will provide summary information for our model: the estimate, 95% Credible Intervals, Rhat, and ESS.</p>
+<div id="qwebr-insertion-location-6"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Recall that our objective for this activity was to determine if the mean value of <font color="purple">[experimental variable]</font> is different from <font color="purple">[value]</font>.</p>
+<p>Notice how there is no p-value - how, then do we determine if there’s a difference?</p>
+<p><strong>THIS ISN’T WORKING</strong> One way to determine if the mean is less than <code>value</code> is to calculate the fraction of posterior samples that are less than <code>value</code>.</p>
+<p>The code below will calculate this.</p>
+<div id="qwebr-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Another way to determine if the mean is less than <code>value</code> is to look at the 95% credible interval, and if <code>value</code> falls within it or not. For our data, the 95% credible interval was <code>(8.29, 8.77)</code>, and since <code>value</code> <strong>falls?</strong> within the credible interval, we would conclude that the mean is <strong>not?</strong> less than <code>value</code>.</p>
 </section>
 
 </main>
