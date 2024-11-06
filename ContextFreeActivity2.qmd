@@ -18,7 +18,7 @@ author:
 engine: knitr
 webr:
   channel-type: 'automatic'
-  packages: ["ggplot2", "dplyr", "bayesrules"]
+  packages: ["ggplot2", "dplyr", "bayesrules", "HDInterval", "patchwork"]
   
 filters:
   - webr
@@ -31,6 +31,8 @@ options(kable_styling_bootstrap_options = c("hover", "striped"))
 library(tidyverse)
 library(kableExtra)
 library(bayesrules)
+library(HDInterval)
+library(patchwork)
 
 theme_set(theme_bw(base_size = 14))
 
@@ -115,7 +117,7 @@ plot_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12)
 
 From the plot above, we can see our assumed *prior* distribution in yellow and our *posterior* distribution in a purplish color. Note that the *posterior* and the scaled *likelihood* overlap exactly here because of our assumed uniform prior.
 
-Now we'll use `summarize_beta_binomial()` to obtain summary statistics on the *prior* and *posterior* distributions. **Add discussion about parameters for `plot_beta_binomial()` as well as the results from running that function -- what do the results "mean" and how can we utilize them?**
+Now we'll use `summarize_beta_binomial()` to obtain summary statistics on the *prior* and *posterior* distributions. **Add discussion about parameters for `summarize_beta_binomial()` as well as the results from running that function -- what do the results "mean" and how can we utilize them?**
 
 ```{r}
 #| echo: true
@@ -218,7 +220,116 @@ Visually and numerically, what insights do the results from these two function c
 
 ### Credible Intervals
 
-### Highest Density Probability Intervals
+If you've taken a statistics course using the *frequentist approach*, you almost surely encountered the notion of a confidence interval. A *confidence interval* captures a population parameter with a prescribed level of confidence. The mechanics here indicated that, if we were to take many random samples of a fixed size from the same population and calculate a confidence interval for each, we would expect a certain proportion of those intervals (say, 95% for a 95% confidence level) to contain the true population parameter. We only collect a single sample, so when a 95% confidence interval is constructed in the frequentist sense, we are really claiming that there we have 95% confidence that our random sample is one of those whose resulting confidence interval contains the true value of the population parameter.
+
+At best, confidence intervals have a somewhat awkward interpretation and, at worst, they are misinterpreted altogether. Bayesian inference provides an alternative with a more intuitive interpretation. In Bayesian inference, we make use of *credible intervals*, obtained from the *posterior distribution*. As an example, a 90% credible interval extends from the $5^{\text{th}}$ percentile to the $95^{\text{th}}$ percentile of the posterior distribution. An enormous advantage to credible intervals is that they permit a simple, probabilistic interpretation -- *there is a 90% probability that the population parameter falls between the lower and upper bound of the credible interval*. Such an interpretation is intuitive.
+
+In this section of our activity, we'll compute and interpret credible intervals. To do so, we'll need a bit of information about the `qbeta()` function, which can be used to calculate "quantiles" from a beta distribution. To use `qbeta()`, we simply pass the proportion of observations to the left of the quantile we are interested in extracting, the $\alpha$ parameter, and the $\beta$ parameter for the beta distribution. The result will be the corresponding cutoff value in the beta distribution. For example, we can calculate the $5^{\text{th}}$ percentile and the $95^{\text{th}}$ percentile from our *weakly informative* `beta(6, 4)` prior from earlier as follows.
+
+```{r}
+lower_bound <- qbeta(0.05, 6, 4)
+upper_bound <- qbeta(0.95, 6, 4)
+
+lower_bound
+upper_bound
+```
+
+That is, before we observed any data, our prior distribution told us that there was a 90% probability that the population parameter was between about 34.5% and about 83.1%. Note that we could have also calculated both of these bounds at once using `qbeta(c(0.05, 0.95), shape1 = 6, shape2 = 4)`
+
+Use the updated data and your results from `summarize_beta_binomial()`, along with the `qbeta()` function to extract a new 90% credible interval for the population proportion.
+
+```{webr-r}
+
+```
+
+:::{.callout-caution}
+Interpret your resulting credible interval and discuss your interpretation with a partner.
+:::
+
+Now calculate a 95% credible interval for the population proportion. 
+
+```{webr-r}
+
+```
+
+:::{.callout-caution}
+Discuss these new bounds with people near you.
+:::
+
+### Highest Posterior Density Intervals
+
+It is possible that a credible interval may exclude some population parameter values that are quite likely in reality. This is particularly the case when we are extracting our credible interval from a skewed posterior distribution. Highest posterior density intervals (HPDIs) provide an alternative to credible intervals which capture the "most likely" values of the population parameter.
+
+We can use the `hdi()` function from the `{HDInterval}` R package for this. For example, returning to our *weakly informative prior* of `beta(shape1 = 6, shape2 = 4)` from earlier, we can calculate a 90% HPDI as follows:
+
+```{r}
+hdi(qbeta, credMass = 0.90, shape1 = 6, shape2 = 4)
+```
+
+Similarly to the credible interval, before we observed any data, our prior distribution told us that the 90% most likely values for the population parameter were between 36.1% and 84.5%.
+
+Use the results from `summarize_beta_binomial()`, accounting for our newly observed data, to obtain an updated 90% HPDI for our population parameter by using `hdi()`.
+
+```{webr-r}
+
+```
+
+:::{.callout-caution}
+Interpret your resulting *highest posterior density interval* and discuss your interpretation with people around you.
+:::
+
+Calculate a 95% HDPI for the population proportion. 
+
+```{webr-r}
+
+```
+
+:::{.callout-caution}
+Discuss these new bounds with the people around you as well.
+
+:::
+
+### Comparing the Credible Interval and the HPDI
+
+We can compare the bounds from our estimated credible interval and the bounds for our HPDI from our *weakly informative* `beta(shape1 = 6, shape2 = 4)` *prior*. Let's see that below before you do the same with the posterior distribution.
+
+```{r}
+ci_bounds <- qbeta(c(0.05, 0.95), shape1 = 6, shape2 = 4)
+hpdi_bounds <- hdi(qbeta, credMass = 0.90, shape1 = 6, shape2 = 4)
+
+prop_vals <- seq(0, 1, length.out = 500)
+ci_sequence <- seq(ci_bounds[1], ci_bounds[2], length.out = 250)
+hpdi_sequence <- seq(hpdi_bounds[1], hpdi_bounds[2], length.out = 250)
+
+ggplot() + 
+  geom_ribbon(aes(x = ci_sequence,
+                  ymin = 0,
+                  ymax = dbeta(ci_sequence, shape1 = 6, shape2 = 4),
+                  fill = "Credible Interval"),
+              alpha = 0.75) +
+  geom_ribbon(aes(x = hpdi_sequence,
+                  ymin = 0,
+                  ymax = dbeta(hpdi_sequence, shape1 = 6, shape2 = 4),
+                  fill = "HPDI"),
+              alpha = 0.5) +
+  geom_line(aes(x = prop_vals, y = dbeta(prop_vals, shape1 = 6, shape2 = 4))) + 
+  scale_fill_manual(values = c("Credible Interval" = "purple", "HPDI" = "darkgreen")) + 
+  labs(title = "A Comparison of Intervals",
+       x = "Population Proportion",
+       y = "",
+       fill = "Interval Type")
+```
+
+We can see that the two intervals largely agree on the location of the population proportion, however the HPDI entertains some higher population proportions and does not consider the lowest values deemed plausible by the credible interval. Now, use the code chunk below to compare the bounds for your *credible* and *highest posterior density* intervals. You can choose to compare visually, as shown above, or numerically.
+
+```{webr-r}
+
+```
+
+:::{.callout-caution}
+
+Compare and contrast your *credible intervals* with your *highest posterior density intervals* (HPDI). What is the difference in interpretations between a 90% credible interval and a 90% HPDI? When might you use an HPDI instead of a credible interval?
+:::
 
 ## Summary
 
