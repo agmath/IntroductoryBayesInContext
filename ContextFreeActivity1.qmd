@@ -67,7 +67,7 @@ The following subsections outline the background information for this activity f
 
 ### Data Analysis and Bayesian Thinking
 
-There are many statistical tools which can be used to test hypotheses about population parameters. Broadly speaking, these tools fall into three categories:
+There are many statistical tools which can be used to investigate population parameters. Broadly speaking, these tools fall into three categories:
 
 + Classical/Frequentist methods 
 + Simulation-based methods
