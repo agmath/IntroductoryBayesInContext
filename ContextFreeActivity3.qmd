@@ -61,7 +61,8 @@ Things to consider:
   
 **Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
 
-<font color="purple">**Subject-Area Objectives:** This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover objectives associated with their course while embedding Bayesian thinking.</font>
+<font color="purple">**Subject-Area Objectives:** This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover objectives associated with their course while embedding Bayesian thinking.  
+NOTE: It is advised to use the associated simulated data to avoid instances where 'real life' data does not have the same desired characteristics and may not easily converge.  These data are normally distributed, with a mean of 8.5 and a standard deviation of 1.</font>
 
 ## Background Information
 
@@ -108,7 +109,7 @@ Let's try to determine if the mean value of <font color="purple">[experimental v
 We will first examine our data, and determine if a normal prior would be appropriate to use here.
 
 ```{r}
-nobs <- 75
+nobs <- 175
 set.seed(123456)
 my_data <- tibble(
   obs_id = 1:nobs,
