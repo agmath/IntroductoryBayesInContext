@@ -39,18 +39,6 @@ theme_set(theme_bw(base_size = 14))
 This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. 
 :::
 
-:::{.callout-caution}
-## Discussion point:
-Continuous or count data?  Maybe have both be a future goal, and pick one for now?
-
-Things to consider: 
-
-+ both continuous and count data are common in STEM fields, as well as in the social sciences.  
-+ Continuous data would require the N-N model, with some sampling.  This could be complicated
-+ Count data can make use of more familiar priors.
-
-:::
-
 ## Goals and Objectives
 
 **Statistics Goals:** The statistics-focused goals of this activity are as follows:
@@ -62,7 +50,7 @@ Things to consider:
 **Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
 
 <font color="purple">**Subject-Area Objectives:** This section will be utilized to identify objectives/outcomes specific to the course/subject to which the activity context is linked. This allows adopters to cover objectives associated with their course while embedding Bayesian thinking.  
-NOTE: It is advised to use the associated simulated data to avoid instances where 'real life' data does not have the same desired characteristics and may not easily converge.  These data are normally distributed, with a mean of 8.5 and a standard deviation of 1.</font>
+NOTE: It is advised to use the associated simulated data to avoid instances where 'real life' data does not have the same desired characteristics and may not easily converge.  These data are normally distributed, with a mean of 8.5 and a standard deviation of 1.  If you would like to change the mean and standard deviation, it is noted in the first code chunk</font>
 
 ## Background Information
 
@@ -109,13 +97,18 @@ Let's try to determine if the mean value of <font color="purple">[experimental v
 We will first examine our data, and determine if a normal prior would be appropriate to use here.
 
 ```{r}
-nobs <- 175
+#HERE ARE PARAMETERS THAT YOU CAN CHANGE
+sim_mean <- 8.5 #Change the mean here
+sim_sd <- 1 #Change the standard deviation here
+nobs <- 175 #Change the sample size here
+
+#DO NOT CHANGE THESE PARAMETERS
 set.seed(123456)
 my_data <- tibble(
   obs_id = 1:nobs,
   observation = rnorm(n = nobs,
-                      mean = 8.5,
-                      sd = 1)
+                      mean = sim_mean,
+                      sd = sim_sd)
 )
 
 ```
@@ -218,9 +211,9 @@ rhat(fit)
 ### Effective Sample Size
 Due to the nature of simulated draws from a posterior (sampling), the samples end up being correlated rather than independent - there is some degree of autocorrelation.  We can begin to get an idea as to the degree of autocorrelation by examining the *effective sample size (ESS)*.  The ESS is how many independent samples you would need in order to accurately approximate the posterior.  
 
-If the effective sample size is smaller than the actual sample size, that is an indication that the sampling is not very effecient. 
+If the effective sample size is smaller than the actual sample size, that is an indication that the sampling is not very efficient. 
 
-There are two measures of ESS that we will look at: the `Bulk_ESS` and `Tail_ESS`.  The bulk ESS is most pertinent to the effeciency of mean or median estimates - estimates where the bulk of a distribution is.  Tail ESS, on the other hand, is most pertinent for determining efficiency at the talks of the variance - where a 95% Credible Interval will be.
+There are two measures of ESS that we will look at: the `Bulk_ESS` and `Tail_ESS`.  The bulk ESS is most pertinent to the efficiency of mean or median estimates - estimates where the bulk of a distribution is.  Tail ESS, on the other hand, is most pertinent for determining efficiency at the talks of the variance - where a 95% Credible Interval will be.
 
 We can also measure the ESS ratio to quantify the number of independent samples it would take to produce an equivalently accurate posterior approximation. As long as the ratio is greater than 0.1, we would consider that 'good enough'.  
 
@@ -232,7 +225,7 @@ neff_ratio(fit, pars = c("Intercept"))
 ```
 
 ### Autocorrelation
-Looking at the autocorrelation more directly is another way to determine if the each chain is mimicing the behavior of an independent sample.  Due to the nature of sampling, some autocorrelation is to be expected.  However, it is expected to fade out.  In other words, we might expect iteration 2 to be dependent on iteration 1, and iteration 3 to be dependent on iteration 2, and slightly dependent on iteration 1.  
+Looking at the autocorrelation more directly is another way to determine if the each chain is mimicking the behavior of an independent sample.  Due to the nature of sampling, some autocorrelation is to be expected.  However, it is expected to fade out.  In other words, we might expect iteration 2 to be dependent on iteration 1, and iteration 3 to be dependent on iteration 2, and slightly dependent on iteration 1.  
 
 We can examine an autocorrelation plot of our fit model and see how quickly the autocorrelation falls off.  Each chain (our model has 4) will have its own autocorrelation graph.  We expect it to be at 1 initially, then hope that it rapidly (steeply) decreases to around zero.  We also anticipate that the chains behave similarly.
 
@@ -259,13 +252,12 @@ Recall that our objective for this activity was to determine if the mean value o
 
 Notice how there is no p-value - how, then do we determine if there's a difference?  
 
-**THIS ISN'T WORKING**
 One way to determine if the mean is less than `value` is to calculate the fraction of posterior samples that are less than `value`.
 
 The code below will calculate this.
 
 ```{webr-r}
-mean(as_draws_df(fit)$Intercept<11)
+mean(as_draws_df(fit)$Intercept<8.3)
 ```
 
 Another way to determine if the mean is less than `value` is to look at the 95% credible interval, and if `value` falls within it or not.  For our data, the 95% credible interval was `(8.29, 8.77)`, and since `value` **falls?** within the credible interval, we would conclude that the mean is **not?** less than `value`.
