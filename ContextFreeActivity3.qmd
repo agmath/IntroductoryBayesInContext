@@ -54,6 +54,10 @@ NOTE: It is advised to use the associated simulated data to avoid instances wher
 
 ## Background Information
 
+:::{.callout-important}
+Much of the Bayes-specific information for this activity was heavily guided by the *Bayesrules* book (Johnson, A.A., Ott, M.Q, and Dogucu, M., 2020; <https://bayesrulesbook.com>), specifically Chapters 5 and 6.  
+:::
+
 The following subsections outline the background information for this activity from both a statistics and domain-specific lens. 
 
 ### Data Analysis and Bayesian Thinking
@@ -65,12 +69,12 @@ We will be using data from <font color="purple">[the context variable]</font>, w
 ## Conjugacy
 
 Given:
- + the prior model for parameter $\theta$ has a pdf $f(\theta)$ 
- + the model of data $Y$ conditioned on $\theta$ has the likelihood function $L(\theta \mid y)$
+
+ - the prior model for parameter $\theta$ has a pdf $f(\theta)$ 
+ - the model of data $Y$ conditioned on $\theta$ has the likelihood function $L(\theta \mid y)$
 
 If the resulting posterior model with pdf $f(\theta \mid y) \propto f(\theta)L(\theta \mid y)$ is from the same model family as the prior, we would say it is a **conjugate prior**
 
-Note: Description of conjugacy from Bayesrules book, Chapter 5
 :::
 
 
@@ -88,15 +92,10 @@ Let's try to determine if the mean value of <font color="purple">[experimental v
 
 ## Observed Data
 
-<font color="purple">In this section, we either generate, read, or collect data which we'll use to update our chosen prior distribution. The code chunk below is a placeholder which simulates new observed data from our population. As mentioned, there are several options for how this section on *Observed Data* can be treated.
-
-+ Observed data can be simulated, as in the code chunk below.
-+ Observed data can be read in from a location on the web (for example, a GitHub repository). This could be data from a study, a publication, your own research, etc.
-+ Observed data can be collected in class and manually input into the `observation` column of the *tibble* below.</font>
-
 We will first examine our data, and determine if a normal prior would be appropriate to use here.
 
-```{r}
+```{webr-r}
+#Run this code to bring in some data
 #HERE ARE PARAMETERS THAT YOU CAN CHANGE
 sim_mean <- 8.5 #Change the mean here
 sim_sd <- 1 #Change the standard deviation here
@@ -115,14 +114,14 @@ my_data <- tibble(
 
 The code below will generate a histogram of <font color="purple">[variable]</font>.  Looking at the plot, we can determine that the data are approximately normally distributed.  
 
-```{r}
+```{webr-r}
 ggplot(data = my_data) + 
   geom_histogram(aes(x = observation), bins = 50)
 ```
 
 We can also calculate the mean and standard deviation of the data:
 
-```{r}
+```{webr-r}
 mean_obs <- my_data$observation |>
   mean() |>
   round(4)
@@ -153,18 +152,13 @@ $$\mu \sim Normal(\theta, \tau^{2})$$
 $$\frac{1}{\sigma^{2}} \sim Gamma(\alpha, \beta)$$
 Let's start with no prior information.  Perhaps we haven't gathered any data yet, or are exploring a new area of study.  To do this, we'll use some non-informative priors for our mean and standard deviation.  
 
-:::{.callout-caution}
-## Internal note to Adam:
-Here, we'll need something non-informative, but that may also depend on the value being chosen for the context.  A range of 100-500 would be very not okay if we are seeing if the mean is different than, say, 0.4.
-
-WebR question: I have 'loaded' brms in the first code chunk.  webR can't 'see' it.  Do I need to load it differently?
-
-
-:::
-
 Run the code below to generate an initial fit for the model.  Right now, we are just creating a fit object (`fit`), so you won't see any output.  In the steps below, we will first determine if our model converged (i.e. how well the model ran) before evaluating the fit.  This is similar to checking assumptions before running a frequentist analysis.  If our model didn't run well, we can't trust our results.
 
 ```{webr-r}
+#Load the library
+library(brms)
+
+#Fit the model
 fit <- brm(data = my_data, family = gaussian(),
            observation ~ 1, #Here, we are only going to estimate a mean (i.e. the Intercept) and variance
            prior = c(
@@ -178,7 +172,11 @@ fit <- brm(data = my_data, family = gaussian(),
 ```
 
 ## Checking Convergence
-The method we are using involves sampling many times from a posterior distribution.  As a result, we need to first verify that our posterior parameter draws have converged *before* we analyze our model.  If the draws did not converge, they are not useful and might not be independent.  *more information about what convergence is here? Has that been discussed already?*
+The method we are using involves sampling many times from a posterior distribution.  As a result, we need to first verify that our posterior parameter draws have converged *before* we analyze our model.  If the draws did not converge, they are not useful and might not be independent.  
+
+When we move into simulation methods, the samples are no longer taken directly from a posterior distribution, nor are they even independent.  Each sample value will depend on the previous sampled value.  We will specifically be using the Markov Chain Monte Carlo sampling method to estimate our parameters.  While we are leaving the math behind this sampling method to the imagination for now, we do need to know that there are additional steps we need to take to ensure that our simulated posterior distribution is one we can trust.
+
+One way to think about checking if a model converged is akin to how you might check assumptions of a statistical test in a frequentist framework.  You wouldn't want to proceed with a test if your assumptions weren't met.  Likewise, we wouldn't want to proceed with interpreting our results if our model hadn't converged.
 
 ### Trace Plots
 One way we can check convergence is by examining the trace plots.  Run the code below to get the posteriors and trace plots for the intercept (mean) and sigma.
