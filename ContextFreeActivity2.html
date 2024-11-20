@@ -383,7 +383,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"new_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))","id":1,"options":{"fig-width":7,"editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","output":"true","results":"markup","fig-height":5,"classes":"","dpi":72,"comment":"","label":"unnamed-chunk-1","out-width":"700px","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","context":"interactive","autorun":"false","read-only":"false"}},{"code":"","id":2,"options":{"fig-width":7,"editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","output":"true","results":"markup","fig-height":5,"classes":"","dpi":72,"comment":"","label":"unnamed-chunk-2","out-width":"700px","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","context":"interactive","autorun":"false","read-only":"false"}},{"code":"","id":3,"options":{"fig-width":7,"editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","output":"true","results":"markup","fig-height":5,"classes":"","dpi":72,"comment":"","label":"unnamed-chunk-3","out-width":"700px","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","context":"interactive","autorun":"false","read-only":"false"}},{"code":"","id":4,"options":{"fig-width":7,"editor-word-wrap":"true","message":"true","editor-font-scale":"1","out-height":"","output":"true","results":"markup","fig-height":5,"classes":"","dpi":72,"comment":"","label":"unnamed-chunk-4","out-width":"700px","editor-max-height":"","warning":"true","editor-quick-suggestions":"false","fig-cap":"","context":"interactive","autorun":"false","read-only":"false"}}];
+globalThis.qwebrCellDetails = [{"options":{"fig-cap":"","warning":"true","autorun":"false","editor-font-scale":"1","classes":"","read-only":"false","message":"true","label":"unnamed-chunk-1","context":"interactive","fig-width":7,"editor-word-wrap":"true","comment":"","editor-max-height":"","editor-quick-suggestions":"false","results":"markup","out-height":"","fig-height":5,"dpi":72,"out-width":"700px","output":"true"},"id":1,"code":"new_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))"},{"options":{"fig-cap":"","warning":"true","autorun":"false","editor-font-scale":"1","classes":"","read-only":"false","message":"true","label":"unnamed-chunk-2","context":"interactive","fig-width":7,"editor-word-wrap":"true","comment":"","editor-max-height":"","editor-quick-suggestions":"false","results":"markup","out-height":"","fig-height":5,"dpi":72,"out-width":"700px","output":"true"},"id":2,"code":""},{"options":{"fig-cap":"","warning":"true","autorun":"false","editor-font-scale":"1","classes":"","read-only":"false","message":"true","label":"unnamed-chunk-3","context":"interactive","fig-width":7,"editor-word-wrap":"true","comment":"","editor-max-height":"","editor-quick-suggestions":"false","results":"markup","out-height":"","fig-height":5,"dpi":72,"out-width":"700px","output":"true"},"id":3,"code":""},{"options":{"fig-cap":"","warning":"true","autorun":"false","editor-font-scale":"1","classes":"","read-only":"false","message":"true","label":"unnamed-chunk-4","context":"interactive","fig-width":7,"editor-word-wrap":"true","comment":"","editor-max-height":"","editor-quick-suggestions":"false","results":"markup","out-height":"","fig-height":5,"dpi":72,"out-width":"700px","output":"true"},"id":4,"code":""}];
 
 </script>
 <script type="module">
@@ -1968,7 +1968,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">November 13, 2024</p>
+      <p class="date-modified">November 20, 2024</p>
     </div>
   </div>
     
@@ -2258,7 +2258,7 @@ Discussion Question
 </div>
 </div>
 </font><p><font color="purple"></font></p>
-<p>Now, use the updated data and your results from <code>summarize_beta_binomial()</code>, along with the <code>qbeta()</code> function to extract a new 90% credible interval for the population proportion. Use <code>plot_beta_ci()</code> to plot the credible interval as well.</p>
+<p>Now, use the updated data (<font color="purple">the 102 positive outcomes from the 157 observations</font>) and your results from <code>summarize_beta_binomial()</code>, along with the <code>qbeta()</code> function to extract a new 90% credible interval for the population proportion from your <em>posterior</em> distribution. Use <code>plot_beta_ci()</code> to plot the credible interval as well.</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -2267,11 +2267,15 @@ Discussion Question
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Discussion Question
+Discussion Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What does this new credible interval tell you about the population parameter? Discuss what these specific interval bounds mean in practical terms for the population parameter being investigated. Additionally, think of how this interval might change if we collected more data or desired greater coverage. Under each scenario, would the interval narrow or widen? Why?</p>
+<ol type="i">
+<li>How does the credible interval extracted from the <em>posterior</em> distribution differ from the one extracted from the <em>prior</em> distribution? What does that mean?</li>
+<li>What does this new credible interval tell you about the population parameter? Discuss what these specific interval bounds mean in practical terms for the population parameter being investigated.</li>
+<li>How might this interval change if we collected more data or desired greater coverage. Under each scenario, would the interval be more narrow or become wider? Why?</li>
+</ol>
 </div>
 </div>
 <p>Now calculate a 95% credible interval for the population proportion.</p>
@@ -2283,18 +2287,27 @@ Discussion Question
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Discussion Question
+Discussion Questions
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Compare your 90% and 95% credible intervals. Why does the 95% credible interval contain a wider range of values? Did this match your expectation from above?</p>
-<p>What do we gain by using a wider interval? Are there practical contexts in which you might prefer a narrower (e.g., 90%) credible interval over a wider one, or vice versa?</p>
+<ol type="i">
+<li>Compare your 90% and 95% credible intervals. Why does the 95% credible interval contain a wider range of values? Did this match your expectation from above?</li>
+<li>What do we gain by using a wider interval? Are there practical contexts in which you might prefer a narrower (e.g., 90%) credible interval over a wider one, or vice versa?</li>
+</ol>
 </div>
 </div>
 </section>
 </section>
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>In this notebook we,</p>
+<ul>
+<li>reinforced the roles of the <em>prior</em> and <em>posterior</em> distributions.</li>
+<li>saw that our observed data updates our <em>prior</em> beliefs, resulting in a new understanding of the world we are investigating.</li>
+<li>constructed and utilized <em>credible intervals</em> to capture a population parameter.</li>
+<li>we interpreted our <em>credible intervals</em> in a meaningful context and by using the probablistic and intuitive language that the Bayesian approach affords us.</li>
+</ul>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

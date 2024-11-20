@@ -261,16 +261,18 @@ plot_beta_ci(6, 4, 0.90)
 </font>
 
 
-Now, use the updated data and your results from `summarize_beta_binomial()`, along with the `qbeta()` function to extract a new 90% credible interval for the population proportion. Use `plot_beta_ci()` to plot the credible interval as well.
+Now, use the updated data (<font color="purple">the `r new_pos` positive outcomes from the `r new_obs` observations</font>) and your results from `summarize_beta_binomial()`, along with the `qbeta()` function to extract a new 90% credible interval for the population proportion from your *posterior* distribution. Use `plot_beta_ci()` to plot the credible interval as well.
 
 ```{webr-r}
 
 ```
 
 :::{.callout-caution}
-## Discussion Question
+## Discussion Questions
 
-What does this new credible interval tell you about the population parameter? Discuss what these specific interval bounds mean in practical terms for the population parameter being investigated. Additionally, think of how this interval might change if we collected more data or desired greater coverage. Under each scenario, would the interval narrow or widen? Why?
+i) How does the credible interval extracted from the *posterior* distribution differ from the one extracted from the *prior* distribution? What does that mean? 
+ii) What does this new credible interval tell you about the population parameter? Discuss what these specific interval bounds mean in practical terms for the population parameter being investigated. 
+iii) How might this interval change if we collected more data or desired greater coverage. Under each scenario, would the interval be more narrow or become wider? Why?
 :::
 
 Now calculate a 95% credible interval for the population proportion. 
@@ -280,14 +282,20 @@ Now calculate a 95% credible interval for the population proportion.
 ```
 
 :::{.callout-caution}
-## Discussion Question
+## Discussion Questions
 
-Compare your 90% and 95% credible intervals. Why does the 95% credible interval contain a wider range of values? Did this match your expectation from above?
-
-What do we gain by using a wider interval? Are there practical contexts in which you might prefer a narrower (e.g., 90%) credible interval over a wider one, or vice versa?
+i) Compare your 90% and 95% credible intervals. Why does the 95% credible interval contain a wider range of values? Did this match your expectation from above?
+ii) What do we gain by using a wider interval? Are there practical contexts in which you might prefer a narrower (e.g., 90%) credible interval over a wider one, or vice versa?
 :::
 
 ## Summary
+
+In this notebook we,
+
++ reinforced the roles of the *prior* and *posterior* distributions.
++ saw that our observed data updates our *prior* beliefs, resulting in a new understanding of the world we are investigating.
++ constructed and utilized *credible intervals* to capture a population parameter.
++ we interpreted our *credible intervals* in a meaningful context and by using the probablistic and intuitive language that the Bayesian approach affords us.
 
 :::{.callout-caution}
 ## Reflection Question
