@@ -62,7 +62,7 @@ This activity is a sample of our first activity (*From the Prior to the Posterio
 + Students will consider the ethical implications of statistical approaches
 + Students will gather data using methodologies appropriate to the context
 
-**Biology-Objectives:** I'll work with Katie to add drafts of these objectives.
+**Biology Objectives:** <font color="purple">I'll work with Katie to add drafts of these objectives.</font>
 
 ## Background Information
 
