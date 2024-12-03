@@ -46,7 +46,7 @@ new_pos <- 102
 
 :::{.callout-note}
 ## Context-Free Activity
-This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity will be [made available here when it is ready](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid.html).
+This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity is [available here, in the chytrid fungus context](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid.html).
 :::
 
 ## Goals and Objectives
