@@ -33,6 +33,15 @@ We believe there are multiple benefits associated with the dispersion of these a
 
 We want to reach as wide an audience as possible with these activities. For these reasons, no specialised hardware or software will be required. All activities will be freely-available via a web browser. The activities will be written using `{webR}`, which allows anyone to execute R code on a webpage. No prior exposure (at all) to R will be required or assumed to engage with these activities; instead, a willingness to experiment with making changes is all that is necessary. 
 
+## Complete and Near-Complete Resources
+
+We have several resources that are either complete or very near completion, and we'd like to share them with you! Links to those resources appear below -- please let us know if you have any questions, comments, or other general feedback. We look forward to hearing from you!
+
++ **Activity Series Vision and Outlines** -- We've created an [outline of our vision for this activity series](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeOverview.html), along with activity objectives. 
++ **Activity I, *From the Prior to the Posterior*** -- We have completed our [context-free activity outline](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html) as well as a draft of a completed [version of this activity within a biology context](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html).
++ **Activity II, *Bayesian Boundaries: Investigating Credible Intervals*** -- We have completed a [context-free activity outline](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity2.html) and are working on a draft completed version of this activcity within a biology context.
++ **Activity III, Bayesian Data Analysis*** -- We are working on this activity but are having difficulty running `Stan` from within the `{webr}` context. For now, here is [the current draft of the context-free version](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity3.html).
+
 ## Draft Timeline
 
 The following is a preliminary timeline for discussion purposes only. We will update this timeline once we have settled on scope, deliverables, and an estimated launch date.
@@ -44,11 +53,9 @@ The following is a preliminary timeline for discussion purposes only. We will up
   + Activity objectives associated with *Bayesian thinking*
   + Outline of the basic analysis
   + Identification of the major tasks and exercises embedded within the activity
-  + **Draft:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeOverview.html)
+
 + Begin construction of a shareable draft *proof of concept*, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators.
 
-  + **Context-Free Draft:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html)
-  + **Draft with Context:** [See a draft of what's completed here](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html)
 + Engage in Preliminary discussions with discipline-specific faculty as potential partners
 
   + We expect that this objective will be ongoing
