@@ -44,6 +44,8 @@ new_obs <- 157
 new_pos <- 102
 ```
 
+
+
 :::{.callout-note}
 ## Context-Free Activity
 This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity is [available here, in the chytrid fungus context](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid_v2.html).
@@ -137,13 +139,19 @@ To use `plot_beta_binomial()`, we need to specify four arguments:
 
 Below is an example with our initial `beta(1, 1)` *prior* and the first set of new observations we encountered:
 
+
+
 ```{r}
 plot_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12)
 ```
 
+
+
 In the plot, the prior distribution appears in yellow, while the posterior is shown in blue-green. Here, our uninformative prior results in the posterior overlapping exactly with the scaled likelihood. This is because of our choice to use the uniform prior.
 
 To obtain summary statistics on the prior and posterior, we use the `summarize_beta_binomial()` function, which provides key characteristics of each distribution, including the *mean*, *mode*, *standard deviation*, and *variance*. This function takes the same arguments as `plot_beta_binomial()`.
+
+
 
 ```{r}
 #| echo: true
@@ -161,9 +169,13 @@ summarize_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12) %>%
   kable_styling()
 ```
 
+
+
 We'll quickly revisit the second investigation we made in that initial activity as well. <font color="purple">You may remember that we obtained advice from an expert, indicating that we suspect that the population proportion should be near 60%, given prior research results</font>. At that point, we re-evaluated our choice of *prior* distribution to reflect this. <font color="purple">We chose a *weak prior*, which was still a beta distribution but with 6 previously observed successes and 4 previously observed failures. Such a prior is *weak* because it assumes information from very few previous observations.</font>
 
 Let's plot that prior, along with the scaled likelihood and posterior distribution using `plot_beta_binomial()`. We'll also obtain the numerical summaries for the prior and posterior distributions while we are at it.
+
+
 
 ```{r}
 plot_beta_binomial(alpha = 6, beta = 4, y = 8, n = 12)
@@ -184,6 +196,8 @@ summarize_beta_binomial(alpha = 6, beta = 4, y = 8, n = 12) %>%
   kable() %>%
   kable_styling()
 ```
+
+
 
 From the output above, we can see that the *prior*, the scaled likelihood, and the *posterior* are all distinct. The *prior* and the *likelihood* of our observed data act together to arrive at the *posterior* distribution. Again, the use of `plot_beta_binomial()` simplifies our job by performing the Bayesian update behind the scenes.
 
@@ -264,6 +278,8 @@ In this section of our activity, we'll compute and interpret credible intervals.
 
 <font color="purple">For example, we calculate the $5^{\text{th}}$ and $95^{\text{th}}$ percentiles from our weakly informative `beta(6, 4)` prior, giving us a 90% credible interval below.
 
+
+
 ```{r}
 lower_bound <- qbeta(0.05, 6, 4)
 upper_bound <- qbeta(0.95, 6, 4)
@@ -272,13 +288,19 @@ lower_bound
 upper_bound
 ```
 
+
+
 So, based on our prior, we have a 90% probability that the population parameter falls between about 34.5% and about 83.1%. Note that we could have also calculated both of these bounds at once using `qbeta(c(0.05, 0.95), 6, 4)`.
 
 We can also visualize this confidence interval by using the `plot_beta_ci()` function, which takes $\alpha$, $\beta$ and the desired level of coverage as arguments.
 
+
+
 ```{r}
 plot_beta_ci(6, 4, 0.90)
 ```
+
+
 
 </font>
 

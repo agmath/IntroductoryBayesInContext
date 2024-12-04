@@ -40,7 +40,7 @@ This activity is a *context-free scaffold*. You'll almost surely find it to be i
 
 :::::{.panel-tabset}
 
-## For Instructors
+## Goals and Objectives
 
 ### Goals and Objectives
 
