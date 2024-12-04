@@ -18,7 +18,6 @@ engine: knitr
 webr:
   channel-type: 'automatic'
   packages: ["ggplot2", "dplyr", "brms"]
-  
 filters:
   - webr
 ---
@@ -30,6 +29,7 @@ library(tidyverse)
 library(kableExtra)
 library(brms)
 library(bayesplot)
+library(base64enc)
 
 theme_set(theme_bw(base_size = 14))
 ```
@@ -94,8 +94,7 @@ Let's try to determine if the mean value of <font color="purple">[experimental v
 
 We will first examine our data, and determine if a normal prior would be appropriate to use here.
 
-```{webr-r}
-#Run this code to bring in some data
+```{r}
 #HERE ARE PARAMETERS THAT YOU CAN CHANGE
 sim_mean <- 8.5 #Change the mean here
 sim_sd <- 1 #Change the standard deviation here
@@ -114,14 +113,14 @@ my_data <- tibble(
 
 The code below will generate a histogram of <font color="purple">[variable]</font>.  Looking at the plot, we can determine that the data are approximately normally distributed.  
 
-```{webr-r}
+```{r}
 ggplot(data = my_data) + 
   geom_histogram(aes(x = observation), bins = 50)
 ```
 
 We can also calculate the mean and standard deviation of the data:
 
-```{webr-r}
+```{r}
 mean_obs <- my_data$observation |>
   mean() |>
   round(4)
@@ -154,10 +153,7 @@ Let's start with no prior information.  Perhaps we haven't gathered any data yet
 
 Run the code below to generate an initial fit for the model.  Right now, we are just creating a fit object (`fit`), so you won't see any output.  In the steps below, we will first determine if our model converged (i.e. how well the model ran) before evaluating the fit.  This is similar to checking assumptions before running a frequentist analysis.  If our model didn't run well, we can't trust our results.
 
-```{webr-r}
-#Load the library
-library(brms)
-
+```{r}
 #Fit the model
 fit <- brm(data = my_data, family = gaussian(),
            observation ~ 1, #Here, we are only going to estimate a mean (i.e. the Intercept) and variance
@@ -168,6 +164,7 @@ fit <- brm(data = my_data, family = gaussian(),
               #The prior for sigma is half of a center 0, scale 40 Cauchy distribution
                 )
 )
+
 
 ```
 
@@ -202,7 +199,7 @@ $$ \hat R \approx \sqrt{\frac{Var_{combined}}{Var_{within}}}$$
 A "good" $\hat R$ value is 1, with values greater than one indicating instability.  A good rule of thumb is if $\hat R \gt 1.05$ there should be concerns raised about the stability of the chains.
 
 We can get the $\hat R$ of our model by running the following code:
-```{webr-r}
+```{r}
 rhat(fit)
 ```
 
@@ -217,7 +214,8 @@ We can also measure the ESS ratio to quantify the number of independent samples 
 
 The code below shows how to generate the ESS for the Intercept.  Notice how it is being run on the fit object we made earlier and the parameter(s) of interest.  Run this code - is the ratio greater than 0.1?  What if you change it to the `sigma` parameter?  Is this ratio greater than 0.1?
 
-```{webr-r}
+
+```{r}
 #Calculate the ESS ratio
 neff_ratio(fit, pars = c("Intercept"))
 ```
@@ -229,7 +227,7 @@ We can examine an autocorrelation plot of our fit model and see how quickly the 
 
 Run the code below to generate autocorrelation plots for the `Intercept` parameter for our fit object.  What do you observe?  Change the code to generate autocorrelation plots for the `sigma` parameter.
 
-```{webr-r}
+```{r}
 #Generate a lag graph
 mcmc_acf(fit, pars = "Intercept")
 ```
@@ -242,7 +240,7 @@ Looking at all of our data above, do you think we can proceed to evaluating our 
 ## Analysis: Is our mean different than [value]?
 Given that we do not have convergence concerns, we can move on to getting fit data from our model.  The code below will provide summary information for our model: the estimate, 95% Credible Intervals, Rhat, and ESS.
 
-```{webr-r}
+```{r}
 summary(fit)
 ```
 
@@ -254,11 +252,11 @@ One way to determine if the mean is less than `value` is to calculate the fracti
 
 The code below will calculate this.
 
-```{webr-r}
+```{r}
 mean(as_draws_df(fit)$Intercept<8.3)
 ```
 
-Another way to determine if the mean is less than `value` is to look at the 95% credible interval, and if `value` falls within it or not.  For our data, the 95% credible interval was `(8.29, 8.77)`, and since `value` **falls?** within the credible interval, we would conclude that the mean is **not?** less than `value`.
+Another way to determine if the mean is less than `value` is to look at the 95% credible interval, and if `value` falls within it or not.  For our data, the 95% credible interval was `(8.29, 8.77)`, and since `value` falls within the credible interval, we would conclude that the mean is less than `value`.
 
 
 
