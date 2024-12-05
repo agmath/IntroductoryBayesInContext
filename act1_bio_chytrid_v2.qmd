@@ -354,7 +354,7 @@ my_dists %>%
     x = "π",
     y = ""
   ) + 
-  scale_color_manual(values = c("prior" = "purple", "posterior" = "orange"))
+  scale_fill_manual(values = c("prior" = "purple", "posterior" = "orange"))
 ```
 
 :::{.callout-caution}
