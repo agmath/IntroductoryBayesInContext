@@ -93,7 +93,6 @@ div.csl-indent {
 <link href="act2_bio_chytrid_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="act2_bio_chytrid_files/libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="act2_bio_chytrid_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<meta name="quarto:status" content="draft">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
@@ -384,7 +383,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# We'll update with Katie's actual data from GitHub when it is available\nnew_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))","options":{"context":"interactive","editor-word-wrap":"true","comment":"","message":"true","out-width":"700px","autorun":"false","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"editor-max-height":"","read-only":"false","output":"true","editor-font-scale":"1","label":"unnamed-chunk-1","warning":"true","results":"markup","out-height":"","editor-quick-suggestions":"false","dpi":72},"id":1},{"code":"","options":{"context":"interactive","editor-word-wrap":"true","comment":"","message":"true","out-width":"700px","autorun":"false","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"editor-max-height":"","read-only":"false","output":"true","editor-font-scale":"1","label":"unnamed-chunk-2","warning":"true","results":"markup","out-height":"","editor-quick-suggestions":"false","dpi":72},"id":2},{"code":"","options":{"context":"interactive","editor-word-wrap":"true","comment":"","message":"true","out-width":"700px","autorun":"false","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"editor-max-height":"","read-only":"false","output":"true","editor-font-scale":"1","label":"unnamed-chunk-3","warning":"true","results":"markup","out-height":"","editor-quick-suggestions":"false","dpi":72},"id":3},{"code":"","options":{"context":"interactive","editor-word-wrap":"true","comment":"","message":"true","out-width":"700px","autorun":"false","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"editor-max-height":"","read-only":"false","output":"true","editor-font-scale":"1","label":"unnamed-chunk-4","warning":"true","results":"markup","out-height":"","editor-quick-suggestions":"false","dpi":72},"id":4}];
+globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","out-height":"","fig-width":7,"autorun":"false","warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-word-wrap":"true","comment":"","fig-height":5,"output":"true","message":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-cap":"","classes":"","out-width":"700px","dpi":72,"editor-max-height":""},"code":"# We'll update with Katie's actual data from GitHub when it is available\nnew_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))","id":1},{"options":{"label":"unnamed-chunk-2","out-height":"","fig-width":7,"autorun":"false","warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-word-wrap":"true","comment":"","fig-height":5,"output":"true","message":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-cap":"","classes":"","out-width":"700px","dpi":72,"editor-max-height":""},"code":"","id":2},{"options":{"label":"unnamed-chunk-3","out-height":"","fig-width":7,"autorun":"false","warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-word-wrap":"true","comment":"","fig-height":5,"output":"true","message":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-cap":"","classes":"","out-width":"700px","dpi":72,"editor-max-height":""},"code":"","id":3},{"options":{"label":"unnamed-chunk-4","out-height":"","fig-width":7,"autorun":"false","warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-word-wrap":"true","comment":"","fig-height":5,"output":"true","message":"true","editor-font-scale":"1","read-only":"false","results":"markup","fig-cap":"","classes":"","out-width":"700px","dpi":72,"editor-max-height":""},"code":"","id":4}];
 
 </script>
 <script type="module">
@@ -1614,7 +1613,7 @@ window.Quarto = {
 
 </head>
 
-<body><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -1978,7 +1977,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 2, 2024</p>
+      <p class="date-modified">December 4, 2024</p>
     </div>
   </div>
     
