@@ -3,7 +3,6 @@ title: "Bayesian Boundaries: Investigating Credible Intervals"
 subtitle: "(Biology; *Chytrid Fungus in Frogs*)"
 format: html
 theme: flatly
-draft: true
 toc: true
 date: "12/2/2024"
 date-modified: today
