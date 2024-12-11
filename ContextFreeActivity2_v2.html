@@ -382,7 +382,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"comment":"","fig-height":5,"dpi":72,"read-only":"false","warning":"true","editor-word-wrap":"true","out-height":"","context":"interactive","message":"true","results":"markup","output":"true","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","out-width":"700px","autorun":"false","classes":"","editor-font-scale":"1","fig-width":7,"label":"unnamed-chunk-1"},"code":"new_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))","id":1},{"options":{"comment":"","fig-height":5,"dpi":72,"read-only":"false","warning":"true","editor-word-wrap":"true","out-height":"","context":"interactive","message":"true","results":"markup","output":"true","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","out-width":"700px","autorun":"false","classes":"","editor-font-scale":"1","fig-width":7,"label":"unnamed-chunk-2"},"code":"","id":2},{"options":{"comment":"","fig-height":5,"dpi":72,"read-only":"false","warning":"true","editor-word-wrap":"true","out-height":"","context":"interactive","message":"true","results":"markup","output":"true","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","out-width":"700px","autorun":"false","classes":"","editor-font-scale":"1","fig-width":7,"label":"unnamed-chunk-3"},"code":"","id":3},{"options":{"comment":"","fig-height":5,"dpi":72,"read-only":"false","warning":"true","editor-word-wrap":"true","out-height":"","context":"interactive","message":"true","results":"markup","output":"true","editor-max-height":"","editor-quick-suggestions":"false","fig-cap":"","out-width":"700px","autorun":"false","classes":"","editor-font-scale":"1","fig-width":7,"label":"unnamed-chunk-4"},"code":"","id":4}];
+globalThis.qwebrCellDetails = [{"options":{"editor-max-height":"","dpi":72,"message":"true","autorun":"false","out-height":"","results":"markup","output":"true","read-only":"false","fig-cap":"","fig-width":7,"editor-word-wrap":"true","warning":"true","out-width":"700px","context":"interactive","classes":"","comment":"","label":"unnamed-chunk-1","fig-height":5,"editor-font-scale":"1","editor-quick-suggestions":"false"},"id":1,"code":"new_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))"},{"options":{"editor-max-height":"","dpi":72,"message":"true","autorun":"false","out-height":"","results":"markup","output":"true","read-only":"false","fig-cap":"","fig-width":7,"editor-word-wrap":"true","warning":"true","out-width":"700px","context":"interactive","classes":"","comment":"","label":"unnamed-chunk-2","fig-height":5,"editor-font-scale":"1","editor-quick-suggestions":"false"},"id":2,"code":""},{"options":{"editor-max-height":"","dpi":72,"message":"true","autorun":"false","out-height":"","results":"markup","output":"true","read-only":"false","fig-cap":"","fig-width":7,"editor-word-wrap":"true","warning":"true","out-width":"700px","context":"interactive","classes":"","comment":"","label":"unnamed-chunk-3","fig-height":5,"editor-font-scale":"1","editor-quick-suggestions":"false"},"id":3,"code":""},{"options":{"editor-max-height":"","dpi":72,"message":"true","autorun":"false","out-height":"","results":"markup","output":"true","read-only":"false","fig-cap":"","fig-width":7,"editor-word-wrap":"true","warning":"true","out-width":"700px","context":"interactive","classes":"","comment":"","label":"unnamed-chunk-4","fig-height":5,"editor-font-scale":"1","editor-quick-suggestions":"false"},"id":4,"code":""}];
 
 </script>
 <script type="module">
@@ -1951,7 +1951,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 4, 2024</p>
+      <p class="date-modified">December 10, 2024</p>
     </div>
   </div>
     
@@ -1972,7 +1972,7 @@ Context-Free Activity
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This activity is a <em>context-free scaffold</em>. You’ll almost surely find it to be incomplete, and that’s on purpose! We are designing this series of activities to have a <em>domain-specific</em> context laid over them. Throughout the activity, you’ll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity is <a href="https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid_v2.html">available here, in the chytrid fungus context</a>.</p>
+<p>This activity is a <em>context-free scaffold</em>. You’ll almost surely find it to be incomplete, and that’s on purpose! We are designing this series of activities to have a <em>domain-specific</em> context laid over them. Throughout the activity, you’ll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity is <a href="https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid_v2.html">available here, in the chytrid fungus context</a>.</p>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -2007,13 +2007,13 @@ Context-Free Activity
 <p>The following sections provide the statistical and contextual background for this activity.</p>
 <section id="data-analysis-and-bayesian-thinking" class="level4">
 <h4 class="anchored" data-anchor-id="data-analysis-and-bayesian-thinking">Data Analysis and Bayesian Thinking</h4>
-<p>There are many statistical tools which can be used to investigate population parameters. As we mentioned in <a href="https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1_v2.html">our first activity</a>, these tools fall into three broad categories:</p>
+<p>There are many statistical tools which can be used to investigate population parameters. As we mentioned in <a href="https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1_v2.html">our first activity</a>, these tools fall into three broad categories:</p>
 <ul>
 <li>Classical/Frequentist methods</li>
 <li>Simulation-based methods</li>
 <li>Bayesian methods</li>
 </ul>
-<p>This series of activities focuses on Bayesian methods. In this second activity, we engage in extracting and interpreting a <em>credible interval</em> from a <em>posterior</em> distribution. We’ll briefly review how to obtain the <em>posterior</em> distribution from the <em>prior</em> and observed data, but check back on <a href="https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html">our first activity</a> for full details.</p>
+<p>This series of activities focuses on Bayesian methods. In this second activity, we engage in extracting and interpreting a <em>credible interval</em> from a <em>posterior</em> distribution. We’ll briefly review how to obtain the <em>posterior</em> distribution from the <em>prior</em> and observed data, but check back on <a href="https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1.html">our first activity</a> for full details.</p>
 </section>
 <section id="about-the-context" class="level4">
 <h4 class="anchored" data-anchor-id="about-the-context">About the Context</h4>
@@ -2028,7 +2028,7 @@ Context-Free Activity
 <h3 class="anchored" data-anchor-id="reminder-about-prior-and-posterior-distributions">Reminder About Prior and Posterior Distributions</h3>
 <p>In Bayesian inference, a <em>prior distribution</em> represents initial beliefs about a population parameter. This allows for prior knowledge or experiences (and uncertainties) to inform conclusions without solely relying on new data. The <em>posterior distribution</em> is then obtained by updating the <em>prior</em> with observed data by using a version of Bayes’ Rule:</p>
 <p><span class="math display">\[\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}\]</span></p>
-<p>In <a href="https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1_v2.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
+<p>In <a href="https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1_v2.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
 </section>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
@@ -2041,7 +2041,7 @@ Context-Free Activity
 <h3 class="anchored" data-anchor-id="reminder-about-prior-and-posterior-distributions-1">Reminder About Prior and Posterior Distributions</h3>
 <p>In Bayesian inference, a <em>prior distribution</em> represents initial beliefs about a population parameter. This allows for prior knowledge or experiences (and uncertainties) to inform conclusions without solely relying on new data. The <em>posterior distribution</em> is then obtained by updating the <em>prior</em> with observed data by using a version of Bayes’ Rule:</p>
 <p><span class="math display">\[\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}\]</span></p>
-<p>In <a href="https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1_v2.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
+<p>In <a href="https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1_v2.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
 </section>
 <section id="convenient-functionality-from-bayesrules" class="level3">
 <h3 class="anchored" data-anchor-id="convenient-functionality-from-bayesrules">Convenient Functionality from <code>{bayesrules}</code></h3>

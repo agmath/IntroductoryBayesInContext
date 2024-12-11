@@ -47,7 +47,7 @@ new_pos <- 102
 
 :::{.callout-note}
 ## Context-Free Activity
-This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity will be [made available here when it is ready](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid.html).
+This activity is a *context-free scaffold*. You'll almost surely find it to be incomplete, and that's on purpose! We are designing this series of activities to have a *domain-specific* context laid over them. Throughout the activity, you'll see purple text, which is text that should be replaced with context-specific content. A rough draft completed activity will be [made available here when it is ready](https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid.html).
 :::
 
 ## Goals and Objectives
@@ -83,7 +83,7 @@ There are many statistical tools which can be used to test hypotheses about popu
 + Simulation-based methods
 + Bayesian methods
 
-Perhaps you've encountered frequentist methods previously. These methods depend on distribution assumptions and the Central Limit Theorem. In this notebook, we engage in extracting and interpreting a credible interval from a *posterior* distribution. We'll provide a quick recap on the *posterior* distribution and how it is obtained from our *prior* distribution and out observed data in this notebook, but check back on [our first activity](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html) for more details.
+Perhaps you've encountered frequentist methods previously. These methods depend on distribution assumptions and the Central Limit Theorem. In this notebook, we engage in extracting and interpreting a credible interval from a *posterior* distribution. We'll provide a quick recap on the *posterior* distribution and how it is obtained from our *prior* distribution and out observed data in this notebook, but check back on [our first activity](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1.html) for more details.
 
 ### About the Context
 
@@ -97,7 +97,7 @@ Let's build off of what we learned in the first activity and continue trying to 
 
 In Bayesian Inference, a *prior distribution* is an expression of our prior beliefs about a population parameter. It acknowledges our uncertainties while, at the same time, allowing prior knowledge or experiences to have some influence on our conclusions. In this way, we aren't depending on the randomly sampled data to completely determine our findings.
 
-In [our first activity](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html), we saw that we can obtain the *posterior* distribution from our *prior* and our data by making use of a form of Bayes' Rule.
+In [our first activity](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1.html), we saw that we can obtain the *posterior* distribution from our *prior* and our data by making use of a form of Bayes' Rule.
 
 $$\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}$$
 
