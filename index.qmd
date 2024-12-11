@@ -1,94 +1,88 @@
 ---
 title: "Introductory Bayes In Context"
-draft: true
-format: 
-  html: default
-  pdf: default
+format: html
 date: "August 21, 2024"
 date-modified: today
 date-format: long
 theme: flatly
-toc: true
 ---
 
 :::{.callout-note}
 
-This is a homepage for *Introductory Bayes in Context* [placeholder title], a project to bring foundational components of Bayesian thinking and analysis to undergraduate students within their home disciplines. This project is being led by Adam Gilbert (Southern New Hampshire University) and Laura Lambert (James Madison University), and it is mentored by Jingchen (Monika) Hu (Vassar College). We are part of the Bayes-BATS initiative, sponsored by the [NSF IUSE: EHR program](https://www.nsf.gov/pubs/2021/nsf21579/nsf21579.htm) with award numbers 2215879, 2215920, and 2215709. 
+This is a homepage for *Introductory Bayes in Context*, a project to bring foundational components of Bayesian thinking and analysis to undergraduate students within their home disciplines. This project is being led by Adam Gilbert (Southern New Hampshire University) and Laura Lambert (James Madison University), and it is mentored by Jingchen (Monika) Hu (Vassar College). We are part of the Bayes-BATS initiative, sponsored by the [NSF IUSE: EHR program](https://www.nsf.gov/pubs/2021/nsf21579/nsf21579.htm) with award numbers 2215879, 2215920, and 2215709. 
 
 :::
 
 ## About
 
-The goal of *Introductory Bayes in Context* is to provide discipline-specific activities covering foundational Bayesian topics. These topics include (i) the notion of (and relationship between) the *prior* and *posterior*, (ii) extracting and interpreting *credible intervals* from a posterior distribution, and (iii) Bayesian approaches to hypothesis tests comparing two populations. We will develop a basic framework for each of three activities corresponding to these listed topics and then partner with faculty from different disciplines to overlay a relevant and meaningful context onto that frame.
+Watch our overview video below, or continue reading to learn more. Before you leave, don’t forget to explore the tabbed content further down this page to discover currently available activities and to get a preview of the contexts we’re planning to develop soon.
 
-## Why?
+<center>
 
-We believe there are multiple benefits associated with the dispersion of these activities.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3-1gnfEkUXA?si=dXQlrdrmjJ8mw-Rg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-1. Meeting students within their home disciplines ensures that they easily see why Bayesian thinking matters to *them*.
-2. Developing these activities within discipline-specific contexts encourages adoption because instructors don't need to *sacrifice a class meeting* in order to include them -- these activities can be a vehicle for discussing (and interacting with!) an already planned topic.
-3. Since these activities will be written with no background assumed, they have the potential to make Bayesian methods more widely known among faculty and researchers across different fields.
+</center>
 
-## What Adopters Will Need
+The goal of *Introductory Bayes in Context* is to provide discipline-specific activities covering foundational Bayesian topics. The topics covered by this activity series include 
 
-We want to reach as wide an audience as possible with these activities. For these reasons, no specialised hardware or software will be required. All activities will be freely-available via a web browser. The activities will be written using `{webR}`, which allows anyone to execute R code on a webpage. No prior exposure (at all) to R will be required or assumed to engage with these activities; instead, a willingness to experiment with making changes is all that is necessary. 
+i) the notion of (and relationship between) the *prior* and *posterior*
+ii) extracting and interpreting *credible intervals* from a posterior distribution
+iii) Bayesian approaches to hypothesis tests comparing two populations 
+iv) Hierarchical models (*coming summer 2025*)
 
-## Complete and Near-Complete Resources
+We've developed a basic framework for these activities and are actively building versions of them in several discipline-specific contexts. See the `Context-Free` tab below for links to the activity framework. Additionally, see the discipline-specific tabs for versions of the activities developed in contexts from those disciplines. We will continue to update this page as new contexts are added. If you are interested in working with us to develop versions of these activities in your own context, check out the `Future Development` tab.
 
-We have several resources that are either complete or very near completion, and we'd like to share them with you! Links to those resources appear below -- please let us know if you have any questions, comments, or other general feedback. We look forward to hearing from you!
+:::{.panel-tabset}
 
-+ **Activity Series Vision and Outlines** -- We've created an [outline of our vision for this activity series](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeOverview.html), along with activity objectives. 
-+ **Activity I, *From the Prior to the Posterior*** -- We have completed our [context-free activity outline](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1_v2.html) as well as a draft of a completed [version of this activity within a biology context](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid_v2.html).
-+ **Activity II, *Bayesian Boundaries: Investigating Credible Intervals*** -- We have completed a [context-free activity outline](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity2_v2.html) as well as a draft of a completed [version of this activity within a biology context](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid_v2.html).
-+ **Activity III, Bayesian Data Analysis*** -- We are working on this activity but are having difficulty running `Stan` from within the `{webr}` context. For now, here is [the current draft of the context-free version](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity3.html).
+## Context-Free
 
-## Draft Timeline
+*Introductory Bayes in Context* provides a framework for foundational Bayesian activities that can be adapted to diverse disciplines. These context-free versions of the activities serves as a starting point for that adaptation and customization.
 
-The following is a preliminary timeline for discussion purposes only. We will update this timeline once we have settled on scope, deliverables, and an estimated launch date.
+Our goal is to partner with faculty to embed these activities into meaningful, discipline-specific contexts. By doing so, we ensure that students see the relevance of Bayesian thinking to their own fields, instructors can integrate the activities seamlessly into their courses, and Bayesian methods become more accessible to a broader audience of students, educators, and researchers.
 
-**September 2024:** The following items will be completed by the end of September.
+Below are links to the context-free versions of the *Introductory Bayes in Context* activities.
 
-+ Outline skeletons for each of the three underlying activities
+i) [Activity 1, *From the Prior to the Posterior*](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1_v2.html)
+ii) [Activity 2, *Bayesian Boundaries: Investigating Credible Intervals*](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity2_v2.html)
+iii) [Activity 3, *Bayesian Data Analysis: Testing Hypotheses*](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity3.html) (currently in development)
+iv) Activity 4, *Hierarchical Models* (Coming in 2025)
 
-  + Activity objectives associated with *Bayesian thinking*
-  + Outline of the basic analysis
-  + Identification of the major tasks and exercises embedded within the activity
+## Biology (Chytrid Fungus)
 
-+ Begin construction of a shareable draft *proof of concept*, including versions with and without discipline-specific context overlay, that can be used to discuss the project with potential in-discipline collaborators.
+Chytrid fungus, a devastating fungal disease affecting amphibians, has led to population declines and even species extinctions worldwide. In collaboration with Dr. Katie Duryea from the Biology Department at Southern New Hampshire University, we’ve developed a biology-focused version of the *Introductory Bayes in Context* activities. Using real data (coming Spring 2025) collected from frogs in ponds across southern New Hampshire, users will estimate the proportion of frogs afflicted with chytrid fungal infections in southern New Hampshire. Additionally, they will compare the rates of chytrid infection across two ponds.
 
-+ Engage in Preliminary discussions with discipline-specific faculty as potential partners
+Check out this video from Chris Egnoto to learn more about this threat to amphibian life.
 
-  + We expect that this objective will be ongoing
-  
-**October 2024:** By the end of October, we hope to have the following completed.
+<center>
 
-+ Draft context-free versions of at least the first two activities (*Prior to Posterior* and *Extracting and Interpreting Credible Intervals*)
-+ Begin discussions with potential collaborators across different domain disciplines
-+ A completed version of the *Prior to Posterior* activity within the *Chytrid Fungus* context, which will serve as an example for other domain-specific versions of all three activities
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZFb5wLOVr9A?si=njkcs8w7jH_V3jri" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-**November 2024:** By the end of November, we hope to have the following items.
+</center>
 
-+ Finalized context-free drafts of all three of the activities
-+ Drafts of the first activity in-context across the disciplines in which we have collaborators
+Below are links to the *Introductory Bayes in Context* activities in the chytrid fungal context.
 
-  + Including discipline-specific objectives for the activity
-+ Begin drafts of additional activities within our existing collaborators' domains
+i) [Activity 1, *From the Prior to the Posterior*](https://agmath.github.io/IntroductoryBayesInContext/act1_bio_chytrid_v2.html)
+ii) [Activity 2, *Bayesian Boundaries: Investigating Credible Intervals*](https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid_v2.html)
+iii) Activity 3, *Bayesian Data Analysis: Testing Hypotheses* (coming Spring 2025)
+iv) Activity 4, *Hierarchical Models* (Coming in 2025)
 
-**December 2024:** By the end of December, we hope to have completed each of the following.
+## Criminal Justice (Coming in 2025)
 
-+ Finalized versions of activities with collaborators who are willing and able to pilot one or more of the activities in a spring 2025 course
-+ Drafts, at a minimum, of the third activity for each of our partner disciplines
-+ Identified at least two new contexts within which to develop our three activities
+Collaborative work with faculty members from the Justice Studies department at Southern New Hampshire University is planned to begin during Spring 2025. The goal is to develop versions of these activities which will be utilized in the early weeks of a research methods course, introducing these students to Bayesian methodologies.
 
-  + These contexts may be within new disciplines (preferred) or cover different applications within an already covered domain
-  + In cases, where we are developing new applications within a covered discipline we may use the same partner or identify a new partner
-  
-    + An additional draw of these activities is that contexts developed can be within an active area of their research, exposing students to that work, and gaining potential undergraduate collaborators -- this would be a rationale for pursuing a different partner even in a covered domain 
+Check back here for updates!
 
-## Disciplines, Partners, and Topics
+## Environmental Science (Coming Spring 2026)
 
-+ Biology with Dr. Katie Duryea, *Estimating and Comparing the Prevalence of Chytrid Fungus Infections in Frogs Across Ponds*
-+ More disciplines to come, including (but not limited to) Psychology, Sociology, Criminal Justice, Political Science, and Economics.
+We are scheduled to begin working with Erhen Mohler, of James Madison University, in 2025 to build out versions of the *Introductory Bayes in Context* activities in an Environmental Science context. In particular, we are excited to collaborate on the hierarchical modeling activity together. 
+
+Check back here for updates!
+
+## Future Development
+
+Do you have a course or context in mind for a new set of the *Introductory Bayes in Context* activities? Reach out to Adam ([a.gilbert1@snhu.edu](mailto:a.gilbert1@snhu.edu)) and/or Laura ([laycocla@jmu.edu](mailto:laycocla@jmu.edu)) to discuss beginning development of the activities in your context. Alternatively, you are welcome to fork the [GitHub Repo](https://github.com/agmath/IntroductoryBayesInContext) and develop them on your own -- we'd love to know if you do this though!
+
+:::
 
 ## Funding 
 
