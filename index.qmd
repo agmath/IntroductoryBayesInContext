@@ -62,6 +62,8 @@ iv) Activity 4, *Hierarchical Models* (Coming in 2025)
 
 Collaborative work with faculty members from the Criminal Justice department at Southern New Hampshire University is planned to begin during Spring 2025. The goal is to develop versions of these activities which will be utilized in the early weeks of a research methods course, introducing these students to Bayesian methodologies.
 
+Check back here for updates!
+
 ## Environmental Science (Coming Spring 2026)
 
 We are scheduled to begin working with Erhen Mohler, of James Madison University, in 2025 to build out versions of the *Introductory Bayes in Context* activities in an Environmental Science context. In particular, we are excited to collaborate on the hierarchical modeling activity together. 
@@ -70,7 +72,7 @@ Check back here for updates!
 
 ## Future Development
 
-Do you have a course or context in mind for a new set of the *Introductory Bayes in Context* activities? Reach out to Adam [a.gilbert1@snhu.edu](mailto:a.gilbert1@snhu.edu) and/or [Laura] (mailto:laycocla@jmu.edu) to discuss beginning development of the activities in your context. Alternatively, you are welcome to fork the [GitHub Repo](https://github.com/agmath/IntroductoryBayesInContext) and develop them on your own -- we'd love to know if you do this though!
+Do you have a course or context in mind for a new set of the *Introductory Bayes in Context* activities? Reach out to Adam ([a.gilbert1@snhu.edu](mailto:a.gilbert1@snhu.edu)) and/or Laura ([laycocla@jmu.edu](mailto:laycocla@jmu.edu)) to discuss beginning development of the activities in your context. Alternatively, you are welcome to fork the [GitHub Repo](https://github.com/agmath/IntroductoryBayesInContext) and develop them on your own -- we'd love to know if you do this though!
 
 :::
 
