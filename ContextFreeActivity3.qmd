@@ -246,7 +246,7 @@ summary(fit)
 
 Recall that our objective for this activity was to determine if the mean value of <font color="purple">[experimental variable]</font> is different from <font color="purple">[value]</font>.
 
-Notice how there is no p-value - how, then do we determine if there's a difference?  
+Notice how there is no p-value - how, then, do we determine if there's a difference?  
 
 One way to determine if the mean is less than `value` is to calculate the fraction of posterior samples that are less than `value`.
 

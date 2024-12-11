@@ -32,8 +32,7 @@ Currently, we are having some difficulty with deploying our third activity withi
 Finding collaborators with time to work on discipline-specific versions of these activities during the Fall semester has proved more difficult than we initially expected. We have identified more potential collaborators, but their timeline for activity development is necessarily much longer due to their current teaching responsibilities. The following individuals have expressed interest in co-developing and piloting versions of at least one of the *Introductory Bayes in Context* activities within their disciplines during the 2025-2026 academic year.
 
 + Ann Nordmeyer (Psychology, University of Vermont)
-+ ...I should have confirmed interest from one or two more individuals this week...
-+ Can we add your colleague here, Laura?
++ Erhen Mohler (Environmental Science, James Madison University)
 
 ### Continuing Development
 
