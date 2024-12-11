@@ -384,7 +384,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# We'll update with Katie's actual data from GitHub when it is available\nnew_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))","options":{"warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","message":"true","label":"unnamed-chunk-1","fig-height":5,"output":"true","fig-width":7,"read-only":"false","comment":"","dpi":72,"results":"markup","autorun":"false","classes":"","fig-cap":"","out-width":"700px","out-height":"","editor-font-scale":"1"},"id":1},{"code":"","options":{"warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","message":"true","label":"unnamed-chunk-2","fig-height":5,"output":"true","fig-width":7,"read-only":"false","comment":"","dpi":72,"results":"markup","autorun":"false","classes":"","fig-cap":"","out-width":"700px","out-height":"","editor-font-scale":"1"},"id":2},{"code":"","options":{"warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","message":"true","label":"unnamed-chunk-3","fig-height":5,"output":"true","fig-width":7,"read-only":"false","comment":"","dpi":72,"results":"markup","autorun":"false","classes":"","fig-cap":"","out-width":"700px","out-height":"","editor-font-scale":"1"},"id":3},{"code":"","options":{"warning":"true","context":"interactive","editor-quick-suggestions":"false","editor-max-height":"","editor-word-wrap":"true","message":"true","label":"unnamed-chunk-4","fig-height":5,"output":"true","fig-width":7,"read-only":"false","comment":"","dpi":72,"results":"markup","autorun":"false","classes":"","fig-cap":"","out-width":"700px","out-height":"","editor-font-scale":"1"},"id":4}];
+globalThis.qwebrCellDetails = [{"options":{"label":"unnamed-chunk-1","out-width":"700px","editor-font-scale":"1","fig-cap":"","out-height":"","results":"markup","comment":"","output":"true","classes":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","message":"true","editor-quick-suggestions":"false","dpi":72,"editor-max-height":"","editor-word-wrap":"true","autorun":"false"},"code":"# We'll update with Katie's actual data from GitHub when it is available\nnew_obs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  obs_number = 1:new_obs,\n  status = sample(c(\"yes\", \"no\"), \n                  size = new_obs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnew_pos <- my_data %>%\n  filter(status == \"yes\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", new_obs, \n             \" observations, there were \", \n             new_pos, \" positive responses.\"))","id":1},{"options":{"label":"unnamed-chunk-2","out-width":"700px","editor-font-scale":"1","fig-cap":"","out-height":"","results":"markup","comment":"","output":"true","classes":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","message":"true","editor-quick-suggestions":"false","dpi":72,"editor-max-height":"","editor-word-wrap":"true","autorun":"false"},"code":"","id":2},{"options":{"label":"unnamed-chunk-3","out-width":"700px","editor-font-scale":"1","fig-cap":"","out-height":"","results":"markup","comment":"","output":"true","classes":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","message":"true","editor-quick-suggestions":"false","dpi":72,"editor-max-height":"","editor-word-wrap":"true","autorun":"false"},"code":"","id":3},{"options":{"label":"unnamed-chunk-4","out-width":"700px","editor-font-scale":"1","fig-cap":"","out-height":"","results":"markup","comment":"","output":"true","classes":"","warning":"true","read-only":"false","fig-width":7,"fig-height":5,"context":"interactive","message":"true","editor-quick-suggestions":"false","dpi":72,"editor-max-height":"","editor-word-wrap":"true","autorun":"false"},"code":"","id":4}];
 
 </script>
 <script type="module">
@@ -1962,7 +1962,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 4, 2024</p>
+      <p class="date-modified">December 11, 2024</p>
     </div>
   </div>
     
@@ -2019,13 +2019,13 @@ Sample Activity 1 (Biology Context)
 <p>The following sections provide the statistical and contextual background for this activity.</p>
 <section id="data-analysis-and-bayesian-thinking" class="level4">
 <h4 class="anchored" data-anchor-id="data-analysis-and-bayesian-thinking">Data Analysis and Bayesian Thinking</h4>
-<p>There are many statistical tools which can be used to investigate population parameters. As we mentioned in <a href="https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid_v2.html">our first activity</a>, these tools fall into three broad categories:</p>
+<p>There are many statistical tools which can be used to investigate population parameters. As we mentioned in <a href="https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid_v2.html">our first activity</a>, these tools fall into three broad categories:</p>
 <ul>
 <li>Classical/Frequentist methods</li>
 <li>Simulation-based methods</li>
 <li>Bayesian methods</li>
 </ul>
-<p>This series of activities focuses on Bayesian methods. In this second activity, we engage in extracting and interpreting a <em>credible interval</em> from a <em>posterior</em> distribution. We’ll briefly review how to obtain the <em>posterior</em> distribution from the <em>prior</em> and observed data, but check back on <a href="https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid_v2.html">our first activity</a> for full details.</p>
+<p>This series of activities focuses on Bayesian methods. In this second activity, we engage in extracting and interpreting a <em>credible interval</em> from a <em>posterior</em> distribution. We’ll briefly review how to obtain the <em>posterior</em> distribution from the <em>prior</em> and observed data, but check back on <a href="https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid_v2.html">our first activity</a> for full details.</p>
 </section>
 <section id="about-chytrid" class="level4">
 <h4 class="anchored" data-anchor-id="about-chytrid">About Chytrid</h4>
@@ -2044,7 +2044,7 @@ Sample Activity 1 (Biology Context)
 <h3 class="anchored" data-anchor-id="reminder-about-prior-and-posterior-distributions">Reminder About Prior and Posterior Distributions</h3>
 <p>In Bayesian inference, a <em>prior distribution</em> represents initial beliefs about a population parameter. This allows for prior knowledge or experiences (and uncertainties) to inform conclusions without solely relying on new data. The <em>posterior distribution</em> is then obtained by updating the <em>prior</em> with observed data by using a version of Bayes’ Rule:</p>
 <p><span class="math display">\[\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}\]</span></p>
-<p>In <a href="https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
+<p>In <a href="https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
 </section>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
@@ -2057,7 +2057,7 @@ Sample Activity 1 (Biology Context)
 <h3 class="anchored" data-anchor-id="reminder-about-prior-and-posterior-distributions-1">Reminder About Prior and Posterior Distributions</h3>
 <p>In Bayesian inference, a <em>prior distribution</em> represents initial beliefs about a population parameter. This allows for prior knowledge or experiences (and uncertainties) to inform conclusions without solely relying on new data. The <em>posterior distribution</em> is then obtained by updating the <em>prior</em> with observed data by using a version of Bayes’ Rule:</p>
 <p><span class="math display">\[\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}\]</span></p>
-<p>In <a href="https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
+<p>In <a href="https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid.html">Activity 1</a>, we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.</p>
 </section>
 <section id="convenient-functionality-from-bayesrules" class="level3">
 <h3 class="anchored" data-anchor-id="convenient-functionality-from-bayesrules">Convenient Functionality from <code>{bayesrules}</code></h3>

@@ -88,13 +88,13 @@ The following sections provide the statistical and contextual background for thi
 
 #### Data Analysis and Bayesian Thinking
 
-There are many statistical tools which can be used to investigate population parameters. As we mentioned in [our first activity](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid_v2.html), these tools fall into three broad categories:
+There are many statistical tools which can be used to investigate population parameters. As we mentioned in [our first activity](https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid_v2.html), these tools fall into three broad categories:
 
 + Classical/Frequentist methods 
 + Simulation-based methods
 + Bayesian methods
 
-This series of activities focuses on Bayesian methods. In this second activity, we engage in extracting and interpreting a *credible interval* from a *posterior* distribution. We’ll briefly review how to obtain the *posterior* distribution from the *prior* and observed data, but check back on [our first activity](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid_v2.html) for full details.
+This series of activities focuses on Bayesian methods. In this second activity, we engage in extracting and interpreting a *credible interval* from a *posterior* distribution. We’ll briefly review how to obtain the *posterior* distribution from the *prior* and observed data, but check back on [our first activity](https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid_v2.html) for full details.
 
 #### About Chytrid
 
@@ -116,7 +116,7 @@ In Bayesian inference, a *prior distribution* represents initial beliefs about a
 
 $$\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}$$
 
-In [Activity 1](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html), we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.
+In [Activity 1](https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid.html), we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.
 
 ## Activity
 
@@ -132,7 +132,7 @@ In Bayesian inference, a *prior distribution* represents initial beliefs about a
 
 $$\mathbb{P}\left[\text{parameter value} \mid \text{data}\right] = \frac{\mathbb{P}\left[\text{data} \mid \text{parameter value}\right]\cdot \mathbb{P}\left[\text{parameter value}\right]}{\mathbb{P}\left[\text{data}\right]}$$
 
-In [Activity 1](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html), we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.
+In [Activity 1](https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chytrid.html), we manually updated the prior, applying this relationship step-by-step via code, which provided transparency into the Bayesian updating process.
 
 ### Convenient Functionality from `{bayesrules}`
 
