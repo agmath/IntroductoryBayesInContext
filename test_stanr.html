@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Interactive Posterior Update with {brms} and {webr}</title>
+<title>Interactive Posterior Update with Precomputed {brms} Results</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -301,7 +301,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'brms'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'brms', 'rstan'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -323,7 +323,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"# Load required packages\nlibrary(brms)\nlibrary(ggplot2)\n\n# Generate some example data\nset.seed(123)\ndata <- data.frame(value = rnorm(20, mean = 5, sd = 2)) # Observed data with mean ~ 5\n\n# Fit a model with a prior for the mean\nfit <- brm(value ~ 1, data = data, \n           prior = prior(normal(0, 10), class = Intercept), \n           iter = 2000, chains = 2, seed = 42)\n\n# Extract posterior samples\nposterior_samples <- posterior_samples(fit, pars = \"b_Intercept\")\n\n# Plot posterior distribution\nggplot(posterior_samples, aes(x = b_Intercept)) +\n  geom_density(fill = \"blue\", alpha = 0.5) +\n  labs(title = \"Posterior Distribution of the Mean\",\n       x = \"Mean\", y = \"Density\")","options":{"comment":"","editor-max-height":"","context":"interactive","fig-height":5,"dpi":72,"results":"markup","fig-cap":"","editor-word-wrap":"true","classes":"","editor-quick-suggestions":"false","label":"unnamed-chunk-1","output":"true","out-height":"","autorun":"false","message":"true","read-only":"false","fig-width":7,"warning":"true","out-width":"700px","editor-font-scale":"1"},"id":1}];
+globalThis.qwebrCellDetails = [{"options":{"fig-width":7,"context":"interactive","output":"true","editor-word-wrap":"true","autorun":"false","results":"markup","read-only":"false","dpi":72,"fig-cap":"","out-width":"700px","warning":"true","label":"unnamed-chunk-1","editor-font-scale":"1","fig-height":5,"out-height":"","comment":"","editor-quick-suggestions":"false","classes":"","message":"true","editor-max-height":""},"id":1,"code":"# Load required libraries\nlibrary(ggplot2)\nlibrary(tidyverse)\nlibrary(brms)\nlibrary(rstan)\n\n# Load precomputed results\nfit <- readRDS(url(\"https://agmath.github.io/IntroductoryBayesInContext/precomputed_model.rds\")) # Replace with a real URL\n\n# Extract posterior samples\nposterior_samples <- as_draws_df(fit, pars = \"b_Intercept\")\n\n# Plot posterior distribution\nggplot(posterior_samples, aes(x = b_Intercept)) +\n  geom_density(fill = \"blue\", alpha = 0.5) +\n  labs(title = \"Posterior Distribution of the Mean\",\n       x = \"Mean\", y = \"Density\")"}];
 
 </script>
 <script type="module">
@@ -1816,7 +1816,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Interactive Posterior Update with {brms} and {webr}</h1>
+<h1 class="title">Interactive Posterior Update with Precomputed {brms} Results</h1>
 </div>
 
 
@@ -1835,10 +1835,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <section id="updating-a-posterior-for-a-mean" class="level2">
 <h2 class="anchored" data-anchor-id="updating-a-posterior-for-a-mean">Updating a Posterior for a Mean</h2>
-<p>This document demonstrates how to use <code>{brms}</code> within a <code>{webr-r}</code> code chunk to update a posterior distribution for a mean interactively.</p>
-<section id="specify-your-data-and-model" class="level3">
-<h3 class="anchored" data-anchor-id="specify-your-data-and-model">Specify Your Data and Model</h3>
-<p>In this example, we use a simple model to estimate the mean of a dataset. The prior is a normal distribution centered at 0 with a standard deviation of 10.</p>
+<p>This example uses precomputed results from <code>{brms}</code> to demonstrate posterior updates interactively with <code>{webr}</code>.</p>
+<section id="precomputed-model-results" class="level3">
+<h3 class="anchored" data-anchor-id="precomputed-model-results">Precomputed Model Results</h3>
+<p>The posterior distribution for the mean is based on precomputed results from the <code>{brms}</code> package.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>

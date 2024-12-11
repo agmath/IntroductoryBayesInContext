@@ -17,13 +17,13 @@ This is a formal progress report on the *Introductory Bayes in Context* project 
 
 Context-free versions of our three originally envisioned activities have been developed. Links to those activities appear below.
 
-i) [**Activity 1**, *From the Prior to the Posterior*](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html)
-ii) [**Activity 2**, *Bayesian Boundaries: Investigating Credible Intervals*](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity2.html)
-iii) [**Activity 3**, *Testing Hypotheses the Bayesian Way*](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity3.html)
+i) [**Activity 1**, *From the Prior to the Posterior*](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1.html)
+ii) [**Activity 2**, *Bayesian Boundaries: Investigating Credible Intervals*](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity2.html)
+iii) [**Activity 3**, *Testing Hypotheses the Bayesian Way*](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity3.html)
 
 In the discussions we've had with potential collaborators, we have identified an opportunity for a fourth activity focused on modeling with hierarchical models. We intend to develop "context-free" and "discipline-specific" drafts of that activity in the future.
 
-Additionally, we have draft "discipline-specific" versions of the first two activities within Katie Duryea's Chytrid Fungus context from Biology available. You can see and interact with the [first activity](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid.html) and the [second activity](https://agmath.github.io/Bayes-BATS-tier2/act2_bio_chytrid.html) as well. A few minor adjustments need to be made to these chytrid fungus activities before they are ready for Katie to pilot this spring. First, the biology-specific activity objectives need to be added to the **Goals and Objectives** section of the activity. Second, Katie intends to put her data on a publicly available GitHub repository -- once that is done, we'll update the code chunks in the activity to read those data files rather than simulating the data. These changes will be quick to implement and will be done once Katie has availability.
+Additionally, we have draft "discipline-specific" versions of the first two activities within Katie Duryea's Chytrid Fungus context from Biology available. You can see and interact with the [first activity](https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid.html) and the [second activity](https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid.html) as well. A few minor adjustments need to be made to these chytrid fungus activities before they are ready for Katie to pilot this spring. First, the biology-specific activity objectives need to be added to the **Goals and Objectives** section of the activity. Second, Katie intends to put her data on a publicly available GitHub repository -- once that is done, we'll update the code chunks in the activity to read those data files rather than simulating the data. These changes will be quick to implement and will be done once Katie has availability.
 
 #### Some Challenges
 

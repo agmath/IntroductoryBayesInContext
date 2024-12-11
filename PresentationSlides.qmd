@@ -32,10 +32,10 @@ author:
 
 ## Available Resources and Demo
 
-+ [GitHub Repository](https://github.com/agmath/Bayes-BATS-tier2){target="_blank"}
-+ [Activity 1 with Context Overlay (Biology)](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid_v2.html){target="_blank"}
-+ [Context-Free Activity 1](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1_v2.html){target="_blank"}
-+ [Additional Resources Available](https://agmath.github.io/Bayes-BATS-tier2/index.html){target="_blank"}
++ [GitHub Repository](https://github.com/agmath/IntroductoryBayesInContext){target="_blank"}
++ [Activity 1 with Context Overlay (Biology)](https://agmath.github.io/IntroductoryBayesInContext/act1_bio_chytrid_v2.html){target="_blank"}
++ [Context-Free Activity 1](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1_v2.html){target="_blank"}
++ [Additional Resources Available](https://agmath.github.io/IntroductoryBayesInContext/index.html){target="_blank"}
 
 ## Some Challenges
 

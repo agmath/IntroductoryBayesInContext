@@ -27,11 +27,11 @@ We are pleased to report that we are "on-track" with all of these items.
 
 We have constructed outlines for each of the three activities that we had initially envisioned. We've also begun thinking about a fourth activity (addressing modeling) as a result of some of our discussions with potential collaborators.
 
-You can [see the progress we've made on these outlines here](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeOverview.html). Aside from developing an outline for the new fourth activity, the only aspect of this goal we still need to complete is to formalize the Bayesian Thinking objectives associated with each activity.
+You can [see the progress we've made on these outlines here](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeOverview.html). Aside from developing an outline for the new fourth activity, the only aspect of this goal we still need to complete is to formalize the Bayesian Thinking objectives associated with each activity.
 
 #### Proof of Concept
 
-We have constructed a working *proof of concept* that includes two versions of our first activity (*From the Prior to the Posterior*). We have two versions of this activity -- [one without context](https://agmath.github.io/Bayes-BATS-tier2/ContextFreeActivity1.html) and [another with a sample context from biology](https://agmath.github.io/Bayes-BATS-tier2/act1_bio_chytrid.html). 
+We have constructed a working *proof of concept* that includes two versions of our first activity (*From the Prior to the Posterior*). We have two versions of this activity -- [one without context](https://agmath.github.io/IntroductoryBayesInContext/ContextFreeActivity1.html) and [another with a sample context from biology](https://agmath.github.io/IntroductoryBayesInContext/act1_bio_chytrid.html). 
 
 We've structured the context-free version in a way that we hope makes it clear to a collaborator which aspects should be updated to overlay their discipline-specific context over our context-free framework. We've asked Dr. Katie Duryea (Biology, SNHU) to review that context-free document and to provide feedback on its clarity and ease of use. We'll use her feedback to update our context-free version of this first activity and to inform the development of context-free versions for future activities.
 

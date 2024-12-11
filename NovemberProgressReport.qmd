@@ -30,7 +30,7 @@ Bayesian thinking objectives have been fully written for Activity 1 and Activity
 
 #### A Second Context-Free Activity (Activity 3)
 
-A second activity has been completed in full draft form, along with a 50% complete draft of a third activity.  The second completed activity addresses how students might start to make conclusions using Bayes, and moves past computing 'by hand' and fully relies on functions within R.  It can be [seen here](https://github.com/agmath/Bayes-BATS-tier2/ContextFreeActivity3.html) 
+A second activity has been completed in full draft form, along with a 50% complete draft of a third activity.  The second completed activity addresses how students might start to make conclusions using Bayes, and moves past computing 'by hand' and fully relies on functions within R.  It can be [seen here](https://github.com/agmath/IntroductoryBayesInContext/ContextFreeActivity3.html) 
 
 #### GitHub Branch and Finalizing Chytrid Fungus Activity 1
 
