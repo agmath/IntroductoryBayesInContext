@@ -15,6 +15,14 @@ This is a homepage for *Introductory Bayes in Context*, a project to bring found
 
 ## About
 
+Watch our overview video below, or continue reading to learn more. Don’t forget to explore the tabbed content to discover current activities and get a preview of the contexts we’re planning to develop soon.
+
+<center>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3-1gnfEkUXA?si=dXQlrdrmjJ8mw-Rg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</center>
+
 The goal of *Introductory Bayes in Context* is to provide discipline-specific activities covering foundational Bayesian topics. The topics covered by this activity series include 
 
 i) the notion of (and relationship between) the *prior* and *posterior*
