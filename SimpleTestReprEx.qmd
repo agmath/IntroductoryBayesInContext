@@ -3,7 +3,7 @@ title: "ReprEx for `{bayesrules}` and `{rstanarm}`"
 engine: knitr
 webr:
   channel-type: 'automatic'
-  packages: ["ggplot2", "dplyr", "bayesrules"]
+  packages: ["bayesrules"]
   
 filters:
   - webr
