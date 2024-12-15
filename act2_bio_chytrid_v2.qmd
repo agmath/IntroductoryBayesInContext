@@ -141,9 +141,9 @@ We're having trouble with `{rstanarm}` in webR and `{rstanarm}` is a dependency 
 :::
 
 ```{webr-r}
-source("https://raw.githubusercontent.com/agmath/Bayes-BATS-tier2/refs/heads/main/bayesrulesfunctions.R")
+source("https://raw.githubusercontent.com/agmath/IntroductoryBayesInContext/refs/heads/main/bayesrulesfunctions.R")
 
-print("I've made plot_beta_binomial(), summarise_beta_binomial(), and plot_beta_ci() available to you!")
+print("I've made plot_beta_binomial(), summarize_beta_binomial(), and plot_beta_ci() available to you!")
 ```
 
 In this activity, we’ll simplify the process of obtaining our *posterior* distributions by using functions from the `{bayesrules}` package. *Bayes Rules! An Introduction to Bayesian Modeling*, by Johnson, Ott, and Dogucu [@bayesrulesbook] and the corresponding `{bayesrules}` R package [@bayesrulespkg] provide user-friendly functionality that we’ll take advantage of.
