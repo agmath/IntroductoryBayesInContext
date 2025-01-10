@@ -35,37 +35,39 @@ theme_set(theme_bw(base_size = 14))
 
 <!-- ## Biology Context: Chytrid Fungus in Frogs -->
 
-:::{.callout-note}
+::: callout-note
 ## Sample Activity 1 (Biology Context)
+
 This activity is a sample of our first activity (*From the Prior to the Posterior*) with a biology context laid over the framework. This sample has been constructed with coauthor Dr. Katie Duryea, a member of the Biology faculty at Southern New Hampshire University. This sample activity provides an example of what versions of this activity from other domains/contexts may look like.
 :::
 
-::::{.panel-tabset}
-
+::: panel-tabset
 ## Goals and Objectives
 
 ### Goals and Objectives
 
 **Goals:** The goals of this activity are as follows:
 
-+ Show students an alternative to the Frequentist approach to capturing a population parameter.
-+ Students discover the impact of choice of prior on their plausible range.
-+ Students discover the impact of amount of data on their plausible range.
+-   Show students an alternative to the Frequentist approach to capturing a population parameter.
+-   Students discover the impact of choice of prior on their plausible range.
+-   Students discover the impact of amount of data on their plausible range.
 
+**Course Objectives:** This activity would map to course-level objectives similar to the following. Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically. This is to give an idea as to the wide variety of contexts this activity might be placed in.
 
-**Course Objectives:**  This activity would map to course-level objectives similar to the following.  Note that this is not an exhaustive list, nor should it be interpreted that objectives must be phrased identically.  This is to give an idea as to the wide variety of contexts this activity might be placed in.
+-   Students will evaluate a research question using appropriate statistical techniques
+-   Students will correctly identify the type of data they are working with
+-   Students will evaluate literature and/or prior research to generate hypotheses for a research question
+-   Students will learn about different statistical models and approaches
+-   Students will interpret coefficients from a statistical model
+-   Students will evaluate the underlying assumptions of a statistical approach
+-   Students will consider the ethical implications of statistical approaches
+-   Students will gather data using methodologies appropriate to the context
 
-+ Students will evaluate a research question using appropriate statistical techniques
-+ Students will correctly identify the type of data they are working with
-+ Students will evaluate literature and/or prior research to generate hypotheses for a research question
-+ Students will learn about different statistical models and approaches
-+ Students will interpret coefficients from a statistical model
-+ Students will evaluate the underlying assumptions of a statistical approach
-+ Students will examine the ecological impact of different pathogens, both native and introduced
-+ Students will consider the ethical implications of statistical approaches
-+ Students will gather data using methodologies appropriate to the context
+**Biology Objectives:**
 
-**Biology Objectives:** <font color="purple">I'll work with Katie to add drafts of these objectives.</font>
+-   Students will examine the ecological impact of different pathogens, both native and introduced
+-   Students will learn about how different statistical approaches can be applied to biological data, and how to compare approaches
+-   Students will consider how statistical approaches can help scientists to learn more about an ecological concept or conservation concern
 
 ## Pre-Reading
 
@@ -77,9 +79,9 @@ The following subsections outline the background information for this activity f
 
 There are many statistical tools which can be used to test hypotheses about population parameters. Broadly speaking, these tools fall into three categories:
 
-+ Classical/Frequentist methods 
-+ Simulation-based methods
-+ Bayesian methods
+-   Classical/Frequentist methods
+-   Simulation-based methods
+-   Bayesian methods
 
 Perhaps you've encountered Frequentist methods previously. These methods depend on distribution assumptions and the Central Limit Theorem (for example, "my data is approximately normally distributed"). In this notebook, we'll introduce Bayesian methods. In particular, you'll explore how your prior belief (controlled via your choice of *prior distribution*) and the strength of your observed data work together to produce updated beliefs (a *posterior distribution*).
 
@@ -93,7 +95,9 @@ Chytrid Fungus is an infectious fungal disease that can be fatal to amphibians a
 
 <center>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZFb5wLOVr9A?si=njkcs8w7jH_V3jri" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZFb5wLOVr9A?si=njkcs8w7jH_V3jri" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+
+</iframe>
 
 </center>
 
@@ -132,13 +136,13 @@ my_dists %>%
   ylim(c(-0.2, 3))
 ```
 
-:::{.callout-note}
+::: callout-note
 ## Shape of Prior
 
 The Beta-distribution we use here is commonly used with binomial data. It is determined by two shape parameters `alpha` ($\alpha$) and `beta` ($\beta$). We can think of $\alpha$ as the number of previously observed successes and $\beta$ as the number of previously observed failures. Choosing $\alpha = 1$ and $\beta = 1$, results in a prior that allows for both successes and failures ($\pi \neq 0$ and $\pi \neq 1$) but which has no other certainty about the true value of $\pi$.
 :::
 
-Notice that the prior assumption we've made above (via the purple distribution) is that all proportions for Chytrid Fungus infected frogs are equally plausible. In the interactive activity on the next tab, we'll explore how newly observed data updates that *prior* assumption to obtain a more informed *posterior* understanding of the proportion of frogs in New Hampshire infected by Chytrid Fungus. 
+Notice that the prior assumption we've made above (via the purple distribution) is that all proportions for Chytrid Fungus infected frogs are equally plausible. In the interactive activity on the next tab, we'll explore how newly observed data updates that *prior* assumption to obtain a more informed *posterior* understanding of the proportion of frogs in New Hampshire infected by Chytrid Fungus.
 
 ## Activity
 
@@ -179,7 +183,7 @@ my_dists %>%
   ylim(c(-0.2, 3))
 ```
 
-:::{.callout-note}
+::: callout-note
 ## Shape of Prior
 
 The Beta-distribution we use here is commonly used with binomial data. It is determined by two shape parameters `alpha` ($\alpha$) and `beta` ($\beta$). We can think of $\alpha$ as the number of previously observed successes and $\beta$ as the number of previously observed failures. Choosing $\alpha = 1$ and $\beta = 1$, results in a prior that allows for both successes and failures ($\pi \neq 0$ and $\pi \neq 1$) but which has no other certainty about the true value of $\pi$.
@@ -211,7 +215,7 @@ print(paste0("Of the ", num_frogs,
 
 ### Obtaining the Posterior
 
-Now we'll use our data to update the *prior* distribution and obtain the *posterior* distribution for our population proportion. We obtain the posterior distribution by multiplying the prior by the *likelihood* function and then dividing by a normalizing factor to ensure that the result is a probability density (that is, the total probability is 1). The likelihood measures the probability of observing our data at each possible value of the population proportion. 
+Now we'll use our data to update the *prior* distribution and obtain the *posterior* distribution for our population proportion. We obtain the posterior distribution by multiplying the prior by the *likelihood* function and then dividing by a normalizing factor to ensure that the result is a probability density (that is, the total probability is 1). The likelihood measures the probability of observing our data at each possible value of the population proportion.
 
 $$\underbrace{\mathbb{P}\left[\text{proportion} | \text{data}\right]}_{\text{posterior}} = \frac{\overbrace{\mathbb{P}\left[\text{data} | \text{proportion}\right]}^{\text{likelihood}}\cdot \overbrace{\mathbb{P}\left[\text{proportion}\right]}^{\text{prior}}}{\underbrace{\mathbb{P}\left[\text{data}\right]}_{\text{normalizing factor}}}$$
 
@@ -252,21 +256,20 @@ Notice that, after seeing the data, our *posterior* estimate for the proportion 
 
 Now that you've seen one Bayesian analysis to estimate the proportion of frogs impacted by Chytrid, let's reproduce the analysis and explore the impact of (i) choice of prior, (ii) strength of data, and (iii) the combination of data and prior.
 
-:::{.panel-tabset}
-
+::: panel-tabset
 ## Influence of the Prior
 
 In this section, you'll have an opportunity to reproduce the analysis above, but with a different choice of prior distribution on $\pi$.
 
-:::{.callout-important}
+::: callout-important
 ## From Dr. Duryea
 
-[This is a placeholder for now...] In her research, Dr. Duryea has noted that approximately 60% of frogs are impacted by Chytrid.
+\[This is a placeholder for now...\] In her research, Dr. Duryea has noted that approximately 60% of frogs are impacted by Chytrid.
 :::
 
 Recall that, in the Beta distribution, the two parameters `alpha` ($\alpha$) and `beta` ($\beta$) can be thought of as the number of prior successes and prior failures, respectively. Update the code chunk below to choose an `alpha` and `beta` that will result in the 60% estimate observed by Dr. Duryea in her research. Run the code to construct and visualize your prior.
 
-```{webr-r}
+``` {webr-r}
 #Update alpha and beta here
 ##number of prior observed successes
 alpha <- 1
@@ -296,14 +299,15 @@ my_dists %>%
   )
 ```
 
-:::{.callout-caution}
+::: callout-caution
 ## Reflection Question
+
 How does this prior compare to our original prior? Use your understanding of `alpha` and `beta` to justify what you are seeing.
 :::
 
 Now that you've built this new prior, run the code cell below to generate the observed data. Don't make any changes to the code just yet (**Note:** I don't think I want this here, but keep it for now).
 
-```{webr-r}
+``` {webr-r}
 #Generate data -- will replace with code to read in actual data
 num_frogs <- 12
 set.seed(071524)
@@ -326,7 +330,7 @@ print(paste0("Of the ", num_frogs,
 
 Now run the code chunk below to use the observed data to calculate and plot the updated posterior.
 
-```{webr-r}
+``` {webr-r}
 #Calculate posterior probability
 my_dists <- my_dists %>%
   mutate(
@@ -357,8 +361,9 @@ my_dists %>%
   scale_fill_manual(values = c("prior" = "purple", "posterior" = "orange"))
 ```
 
-:::{.callout-caution}
+::: callout-caution
 ## Reflection Question
+
 How does this new posterior compare to the original posterior distribution we estimated? What effect has our choice of stronger prior had on the range of proportions you think our population parameter may live within? Does this result match your expectations?
 :::
 
@@ -366,15 +371,15 @@ How does this new posterior compare to the original posterior distribution we es
 
 In this section you'll have an opportunity to reproduce the analysis above, but with different data sources for updating. In particular, you'll explore the impact that the number of observations can have on the posterior distribution.
 
-:::{.callout-important}
+::: callout-important
 ## From Dr. Duryea
 
-[This is a placeholder for now...] Dr. Duryea's students have finished processing their most recent collection of samples. She has provided us with a larger collection of observed data. Let's see the impact that this larger data set has on updating the prior distribution.
+\[This is a placeholder for now...\] Dr. Duryea's students have finished processing their most recent collection of samples. She has provided us with a larger collection of observed data. Let's see the impact that this larger data set has on updating the prior distribution.
 :::
 
 The code chunk below is set to create a weakly informative prior that assumes a population proportion of Chytrid Fungus infection of 60%, backed by a total of 10 observations. Run the code to construct and visualize this prior.
 
-```{webr-r}
+``` {webr-r}
 ##number of prior observed successes
 alpha <- 6
 ##number of prior observed failures
@@ -405,7 +410,7 @@ my_dists %>%
 
 Now that we have this prior, run the code cell below to generate the observed data. Don't make any changes to the code just yet (**Note:** I don't think I want this here, but keep it for now).
 
-```{webr-r}
+``` {webr-r}
 #Generate data -- will replace with code to read in actual data
 num_frogs <- 157
 set.seed(072324)
@@ -428,7 +433,7 @@ print(paste0("Of the ", num_frogs,
 
 Now run the code chunk below to use the observed data to calculate and plot the updated posterior.
 
-```{webr-r}
+``` {webr-r}
 #Calculate posterior probability
 my_dists <- my_dists %>%
   mutate(
@@ -459,8 +464,9 @@ my_dists %>%
   scale_fill_manual(values = c("prior" = "purple", "posterior" = "orange"))
 ```
 
-:::{.callout-caution}
+::: callout-caution
 ## Reflection Question
+
 How does this new posterior compare to the original posterior distribution we estimated? What effect has our larger collection of observations (larger sample size) had on the range of proportions you think our population parameter may live within? Does this result match your expectations?
 :::
 
@@ -468,11 +474,10 @@ How does this new posterior compare to the original posterior distribution we es
 
 Now that you've seen how different priors and different data (separately) result in different inferences, return to the previous section and examine how stronger priors (for example `alpha = 600` and `beta = 400`) interact with our data to influence our inference.
 
-:::{.callout-caution}
+::: callout-caution
 ## Reflection Question
+
 What conclusions can you draw about whether the *prior* or the observed data has greater influence over the resulting *posterior*?
 :::
-
 :::
-
-::::
+:::
