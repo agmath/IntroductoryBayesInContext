@@ -67,7 +67,7 @@ This activity is a sample of our first activity (*From the Prior to the Posterio
 
 -   Students will examine the ecological impact of different pathogens, both native and introduced
 -   Students will learn about how different statistical approaches can be applied to biological data, and how to compare approaches
--   Students will consider how statistical approaches can help scientists to learn more about an ecological concept or conservation concern
+-   Students will consider how different statistical approaches can help scientists to learn more about an ecological concept or conservation concern
 
 ## Pre-Reading
 
@@ -264,7 +264,7 @@ In this section, you'll have an opportunity to reproduce the analysis above, but
 ::: callout-important
 ## From Dr. Duryea
 
-\[This is a placeholder for now...\] In her research, Dr. Duryea has noted that approximately 60% of frogs are impacted by Chytrid.
+In the 2019 collection year, Dr. Duryea noted that approximately 60% of frogs were impacted by Chytrid.
 :::
 
 Recall that, in the Beta distribution, the two parameters `alpha` ($\alpha$) and `beta` ($\beta$) can be thought of as the number of prior successes and prior failures, respectively. Update the code chunk below to choose an `alpha` and `beta` that will result in the 60% estimate observed by Dr. Duryea in her research. Run the code to construct and visualize your prior.
@@ -374,7 +374,7 @@ In this section you'll have an opportunity to reproduce the analysis above, but 
 ::: callout-important
 ## From Dr. Duryea
 
-\[This is a placeholder for now...\] Dr. Duryea's students have finished processing their most recent collection of samples. She has provided us with a larger collection of observed data. Let's see the impact that this larger data set has on updating the prior distribution.
+Dr. Duryea's students have finished processing their most recent collection of samples. She has provided us with a larger collection of observed data. Let's see the impact that this larger data set has on updating the prior distribution.
 :::
 
 The code chunk below is set to create a weakly informative prior that assumes a population proportion of Chytrid Fungus infection of 60%, backed by a total of 10 observations. Run the code to construct and visualize this prior.
