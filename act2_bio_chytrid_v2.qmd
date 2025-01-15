@@ -55,7 +55,7 @@ new_pos <- 102
 This activity is a sample of our second activity (*Bayesian Boundaries: Exploring Credible Intervals*) with a biology context laid over the framework. This sample has been constructed with coauthor Dr. Katie Duryea, a member of the Biology faculty at Southern New Hampshire University. This sample activity provides an example of what versions of this activity from other domains/contexts may look like.
 :::
 
-::: panel-tabset
+:::::::::: panel-tabset
 ## Goals and Objectives
 
 ### Goals and Objectives
@@ -147,7 +147,7 @@ In [Activity 1](https://agmath.github.io/IntroductoryBaysInContext/act1_bio_chyt
 We're having trouble with `{rstanarm}` in webR and `{rstanarm}` is a dependency of the `{bayesrules}` package. Since none of the functions utilized in this activity require `{rstanarm}`, I've saved an R Script with the functions we are using. Run the code cell below to "source" that script.
 :::
 
-``` {webr-r}
+```{webr-r}
 source("https://raw.githubusercontent.com/agmath/IntroductoryBayesInContext/refs/heads/main/bayesrulesfunctions.R")
 
 print("I've made plot_beta_binomial(), summarize_beta_binomial(), and plot_beta_ci() available to you!")
@@ -230,7 +230,7 @@ Through the main section of this activity, you'll explore the use of *credible i
 
 Before we get into CIs, let's get ourselves back to where we were at the end of the last activity. As you might remember, we obtained data on a larger collection of 157 observed frogs, from which there were 102 testing positive for chytrid fungus. Run the code chunk below to read in that data.
 
-``` {webr-r}
+```{webr-r}
 # We'll update with Katie's actual data from GitHub when it is available
 new_obs <- 157
 set.seed(072324)
@@ -253,7 +253,7 @@ print(paste0("Of the ", new_obs,
 
 Use the `plot_beta_binomial()` and `summarize_beta_binomial()` functions in the code cell below to update your weakly informative `beta(6, 4)` prior with these `r new_obs` observations including `r new_pos` positive outcomes.
 
-``` {webr-r}
+```{webr-r}
 ```
 
 ::: callout-caution
@@ -301,7 +301,7 @@ Discuss how the numeric values you obtained using `qbeta()` are displayed in the
 
 Now, use the updated data (the `r new_pos` chytrid-positive frogs from the `r new_obs` newly observed frogs) and your results from `summarize_beta_binomial()`, along with the `qbeta()` function to extract a new 90% credible interval for the population proportion of chytrid-positive frogs from your *posterior* distribution. Use `plot_beta_ci()` to plot the credible interval as well.
 
-``` {webr-r}
+```{webr-r}
 ```
 
 ::: callout-caution
@@ -314,7 +314,7 @@ iii) How might this interval change if we collected more data or desired greater
 
 Now calculate a 95% credible interval for the population proportion of chytrid-positive frogs in New Hampshire.
 
-``` {webr-r}
+```{webr-r}
 ```
 
 ::: callout-caution
@@ -342,7 +342,7 @@ i)  **Your current coursework:** How might credible intervals support your analy
 ii) **Personal interests:** Are there topics or hobbies where interval estimates could clarify uncertainty?
 iii) **Professional projects:** Think about how credible intervals might apply in work settings where you estimate uncertain quantities.
 :::
-:::
+::::::::::
 
 ## References
 

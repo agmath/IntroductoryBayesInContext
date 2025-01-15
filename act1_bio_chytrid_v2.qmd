@@ -41,7 +41,7 @@ theme_set(theme_bw(base_size = 14))
 This activity is a sample of our first activity (*From the Prior to the Posterior*) with a biology context laid over the framework. This sample has been constructed with coauthor Dr. Katie Duryea, a member of the Biology faculty at Southern New Hampshire University. This sample activity provides an example of what versions of this activity from other domains/contexts may look like.
 :::
 
-::: panel-tabset
+:::::::::::: panel-tabset
 ## Goals and Objectives
 
 ### Goals and Objectives
@@ -256,7 +256,7 @@ Notice that, after seeing the data, our *posterior* estimate for the proportion 
 
 Now that you've seen one Bayesian analysis to estimate the proportion of frogs impacted by Chytrid, let's reproduce the analysis and explore the impact of (i) choice of prior, (ii) strength of data, and (iii) the combination of data and prior.
 
-::: panel-tabset
+::::::::: panel-tabset
 ## Influence of the Prior
 
 In this section, you'll have an opportunity to reproduce the analysis above, but with a different choice of prior distribution on $\pi$.
@@ -269,7 +269,7 @@ In the 2019 collection year, Dr. Duryea noted that approximately 60% of frogs we
 
 Recall that, in the Beta distribution, the two parameters `alpha` ($\alpha$) and `beta` ($\beta$) can be thought of as the number of prior successes and prior failures, respectively. Update the code chunk below to choose an `alpha` and `beta` that will result in the 60% estimate observed by Dr. Duryea in her research. Run the code to construct and visualize your prior.
 
-``` {webr-r}
+```{webr-r}
 #Update alpha and beta here
 ##number of prior observed successes
 alpha <- 1
@@ -307,7 +307,7 @@ How does this prior compare to our original prior? Use your understanding of `al
 
 Now that you've built this new prior, run the code cell below to generate the observed data. Don't make any changes to the code just yet (**Note:** I don't think I want this here, but keep it for now).
 
-``` {webr-r}
+```{webr-r}
 #Generate data -- will replace with code to read in actual data
 num_frogs <- 12
 set.seed(071524)
@@ -330,7 +330,7 @@ print(paste0("Of the ", num_frogs,
 
 Now run the code chunk below to use the observed data to calculate and plot the updated posterior.
 
-``` {webr-r}
+```{webr-r}
 #Calculate posterior probability
 my_dists <- my_dists %>%
   mutate(
@@ -379,7 +379,7 @@ Dr. Duryea's students have finished processing their most recent collection of s
 
 The code chunk below is set to create a weakly informative prior that assumes a population proportion of Chytrid Fungus infection of 60%, backed by a total of 10 observations. Run the code to construct and visualize this prior.
 
-``` {webr-r}
+```{webr-r}
 ##number of prior observed successes
 alpha <- 6
 ##number of prior observed failures
@@ -410,7 +410,7 @@ my_dists %>%
 
 Now that we have this prior, run the code cell below to generate the observed data. Don't make any changes to the code just yet (**Note:** I don't think I want this here, but keep it for now).
 
-``` {webr-r}
+```{webr-r}
 #Generate data -- will replace with code to read in actual data
 num_frogs <- 157
 set.seed(072324)
@@ -433,7 +433,7 @@ print(paste0("Of the ", num_frogs,
 
 Now run the code chunk below to use the observed data to calculate and plot the updated posterior.
 
-``` {webr-r}
+```{webr-r}
 #Calculate posterior probability
 my_dists <- my_dists %>%
   mutate(
@@ -479,5 +479,5 @@ Now that you've seen how different priors and different data (separately) result
 
 What conclusions can you draw about whether the *prior* or the observed data has greater influence over the resulting *posterior*?
 :::
-:::
-:::
+:::::::::
+::::::::::::
