@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.5.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -64,10 +64,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="act1_bio_chytrid_v2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="act1_bio_chytrid_v2_files/libs/quarto-html/anchor.min.js"></script>
 <link href="act1_bio_chytrid_v2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="act1_bio_chytrid_v2_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="act1_bio_chytrid_v2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="act1_bio_chytrid_v2_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="act1_bio_chytrid_v2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="act1_bio_chytrid_v2_files/libs/bootstrap/bootstrap-0e8d46d49afdcf27eef7cf8bb79e73b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="act1_bio_chytrid_v2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
@@ -336,7 +336,7 @@ body.reveal.quarto-dark div.qwebr-console-area {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr'];
+globalThis.qwebrInstallRPackagesList = ['ggplot2', 'dplyr', 'readr'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -358,7 +358,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"#Update alpha and beta here\n##number of prior observed successes\nalpha <- 1\n##number of prior observed failures\nbeta <- 1\n\n#Fewer points results in more jagged pictures\ngrid_pts <- 500\n\n#Create prior distribution\nmy_dists <- tibble(\n  pi = seq(0, 1, length.out = grid_pts), #possible proportions\n  prior_prob = dbeta(pi, alpha, beta) #prior probability\n)\n\n#Plot prior distribution\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob), \n            fill = \"purple\", alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  labs(\n    title = \"Prior Distribution\",\n    x = \"π\",\n    y = \"\"\n  )","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"#Generate data -- will replace with code to read in actual data\nnum_frogs <- 12\nset.seed(071524)\nmy_data <- tibble(\n  frog_number = 1:num_frogs,\n  status = sample(c(\"positive\", \"negative\"), \n                  size = num_frogs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnum_pos <- my_data %>%\n  filter(status == \"positive\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", num_frogs, \n             \" frogs observed, the number positive for Chytrid Fungus was \", \n             num_pos, \".\"))","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"#Calculate posterior probability\nmy_dists <- my_dists %>%\n  mutate(\n    #Compute likelihood using binomial distribution\n    likelihood = choose(num_frogs, num_pos)*pi^num_pos*(1 - pi)^(num_frogs - num_pos),\n    #Compute posterior as likelihood*prior\n    post_prob = likelihood*prior_prob,\n    #Normalize posterior\n    post_prob_normalized = post_prob/(sum(post_prob)*1/grid_pts)\n    )\n\n#Plot posterior\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob, fill = \"prior\"),\n            alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  geom_area(aes(x = pi, y = post_prob_normalized, fill = \"posterior\"), \n            alpha = 0.7) + \n  geom_line(aes(x = pi, y = post_prob_normalized),\n            linetype = \"dashed\") +\n  labs(\n    title = \"Prior and Posterior Distributions\",\n    x = \"π\",\n    y = \"\"\n  ) + \n  scale_fill_manual(values = c(\"prior\" = \"purple\", \"posterior\" = \"orange\"))","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"##number of prior observed successes\nalpha <- 6\n##number of prior observed failures\nbeta <- 4\n\n#Fewer points results in more jagged pictures\ngrid_pts <- 500\n\n#Create prior distribution\nmy_dists <- tibble(\n  pi = seq(0, 1, length.out = grid_pts), #possible proportions\n  prior_prob = dbeta(pi, alpha, beta) #prior probability\n)\n\n#Plot prior distribution\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob), \n            fill = \"purple\", alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  labs(\n    title = \"Prior Distribution\",\n    x = \"π\",\n    y = \"\"\n  )","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"#Generate data -- will replace with code to read in actual data\nnum_frogs <- 157\nset.seed(072324)\nmy_data <- tibble(\n  frog_number = 1:num_frogs,\n  status = sample(c(\"positive\", \"negative\"), \n                  size = num_frogs,\n                  prob = c(0.7, 0.3), \n                  replace = TRUE)\n)\n\nnum_pos <- my_data %>%\n  filter(status == \"positive\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", num_frogs, \n             \" frogs observed, the number positive for Chytrid Fungus was \", \n             num_pos, \".\"))","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"#Calculate posterior probability\nmy_dists <- my_dists %>%\n  mutate(\n    #Compute likelihood using binomial distribution\n    likelihood = choose(num_frogs, num_pos)*pi^num_pos*(1 - pi)^(num_frogs - num_pos),\n    #Compute posterior as likelihood*prior\n    post_prob = likelihood*prior_prob,\n    #Normalize posterior\n    post_prob_normalized = post_prob/(sum(post_prob)*1/grid_pts)\n    )\n\n#Plot posterior\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob, fill = \"prior\"),\n            alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  geom_area(aes(x = pi, y = post_prob_normalized, fill = \"posterior\"), \n            alpha = 0.7) + \n  geom_line(aes(x = pi, y = post_prob_normalized),\n            linetype = \"dashed\") +\n  labs(\n    title = \"Prior and Posterior Distributions\",\n    x = \"π\",\n    y = \"\"\n  ) + \n  scale_fill_manual(values = c(\"prior\" = \"purple\", \"posterior\" = \"orange\"))","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"#Update alpha and beta here\n##number of prior observed successes\nalpha <- 1\n##number of prior observed failures\nbeta <- 1\n\n#Fewer points results in more jagged pictures\ngrid_pts <- 500\n\n#Create prior distribution\nmy_dists <- tibble(\n  pi = seq(0, 1, length.out = grid_pts), #possible proportions\n  prior_prob = dbeta(pi, alpha, beta) #prior probability\n)\n\n#Plot prior distribution\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob), \n            fill = \"purple\", alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  labs(\n    title = \"Prior Distribution\",\n    x = \"π\",\n    y = \"\"\n  )","options":{"read-only":"false","label":"unnamed-chunk-1","dpi":72,"out-width":"700px","context":"interactive","out-height":"","comment":"","fig-cap":"","message":"true","warning":"true","fig-width":7,"editor-font-scale":"1","editor-word-wrap":"true","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"classes":"","output":"true"},"id":1},{"code":"initial_frogs <- read_csv(\n  \"https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_small.csv\"\n  )\n\nnum_frogs <- initial_frogs %>%\n  nrow()\n\nnum_pos <- initial_frogs %>%\n  filter(chytrid == \"y\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", num_frogs, \n             \" frogs observed, the number positive for Chytrid Fungus was \", \n             num_pos, \".\"))","options":{"read-only":"false","label":"unnamed-chunk-2","dpi":72,"out-width":"700px","context":"interactive","out-height":"","comment":"","fig-cap":"","message":"false","warning":"false","fig-width":7,"editor-font-scale":"1","editor-word-wrap":"true","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"classes":"","output":"true"},"id":2},{"code":"#Calculate posterior probability\nmy_dists <- my_dists %>%\n  mutate(\n    #Compute likelihood using binomial distribution\n    likelihood = choose(num_frogs, num_pos)*pi^num_pos*(1 - pi)^(num_frogs - num_pos),\n    #Compute posterior as likelihood*prior\n    post_prob = likelihood*prior_prob,\n    #Normalize posterior\n    post_prob_normalized = post_prob/(sum(post_prob)*1/grid_pts)\n    )\n\n#Plot posterior\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob, fill = \"prior\"),\n            alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  geom_area(aes(x = pi, y = post_prob_normalized, fill = \"posterior\"), \n            alpha = 0.7) + \n  geom_line(aes(x = pi, y = post_prob_normalized),\n            linetype = \"dashed\") +\n  labs(\n    title = \"Prior and Posterior Distributions\",\n    x = \"π\",\n    y = \"\"\n  ) + \n  scale_fill_manual(values = c(\"prior\" = \"purple\", \"posterior\" = \"orange\"))","options":{"read-only":"false","label":"unnamed-chunk-3","dpi":72,"out-width":"700px","context":"interactive","out-height":"","comment":"","fig-cap":"","message":"true","warning":"true","fig-width":7,"editor-font-scale":"1","editor-word-wrap":"true","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"classes":"","output":"true"},"id":3},{"code":"##number of prior observed successes\nalpha <- 6\n##number of prior observed failures\nbeta <- 4\n\n#Fewer points results in more jagged pictures\ngrid_pts <- 500\n\n#Create prior distribution\nmy_dists <- tibble(\n  pi = seq(0, 1, length.out = grid_pts), #possible proportions\n  prior_prob = dbeta(pi, alpha, beta) #prior probability\n)\n\n#Plot prior distribution\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob), \n            fill = \"purple\", alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  labs(\n    title = \"Prior Distribution\",\n    x = \"π\",\n    y = \"\"\n  )","options":{"read-only":"false","label":"unnamed-chunk-4","dpi":72,"out-width":"700px","context":"interactive","out-height":"","comment":"","fig-cap":"","message":"true","warning":"true","fig-width":7,"editor-font-scale":"1","editor-word-wrap":"true","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"classes":"","output":"true"},"id":4},{"code":"new_frogs <- read_csv(\n  \"https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_remaining.csv\"\n  )\n\nnum_new_frogs <- new_frogs %>%\n  nrow()\n\nnum_new_pos <- new_frogs %>%\n  filter(chytrid == \"y\") %>%\n  nrow()\n\nprint(paste0(\"Of the \", num_new_frogs, \n             \" new frogs observed and processed, the number positive for Chytrid Fungus was \", \n             num_new_pos, \".\"))","options":{"read-only":"false","label":"unnamed-chunk-5","dpi":72,"out-width":"700px","context":"interactive","out-height":"","comment":"","fig-cap":"","message":"false","warning":"false","fig-width":7,"editor-font-scale":"1","editor-word-wrap":"true","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"classes":"","output":"true"},"id":5},{"code":"#Calculate posterior probability\nmy_dists <- my_dists %>%\n  mutate(\n    #Compute likelihood using binomial distribution\n    likelihood = choose(num_new_frogs, num_new_pos)*pi^num_new_pos*(1 - pi)^(num_new_frogs - num_new_pos),\n    #Compute posterior as likelihood*prior\n    post_prob = likelihood*prior_prob,\n    #Normalize posterior\n    post_prob_normalized = post_prob/(sum(post_prob)*1/grid_pts)\n    )\n\n#Plot posterior\nmy_dists %>%\n  ggplot() + \n  geom_area(aes(x = pi, y = prior_prob, fill = \"prior\"),\n            alpha = 0.4) + \n  geom_line(aes(x = pi, y = prior_prob),\n            linetype = \"dashed\") + \n  geom_area(aes(x = pi, y = post_prob_normalized, fill = \"posterior\"), \n            alpha = 0.7) + \n  geom_line(aes(x = pi, y = post_prob_normalized),\n            linetype = \"dashed\") +\n  labs(\n    title = \"Prior and Posterior Distributions\",\n    x = \"π\",\n    y = \"\"\n  ) + \n  scale_fill_manual(values = c(\"prior\" = \"purple\", \"posterior\" = \"orange\"))","options":{"read-only":"false","label":"unnamed-chunk-6","dpi":72,"out-width":"700px","context":"interactive","out-height":"","comment":"","fig-cap":"","message":"true","warning":"true","fig-width":7,"editor-font-scale":"1","editor-word-wrap":"true","results":"markup","editor-max-height":"","editor-quick-suggestions":"false","autorun":"false","fig-height":5,"classes":"","output":"true"},"id":6}];
 
 </script>
 <script type="module">
@@ -1930,7 +1930,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 11, 2025</p>
+      <p class="date-modified">January 17, 2025</p>
     </div>
   </div>
     
@@ -2125,27 +2125,24 @@ Shape of Prior
 </section>
 <section id="observed-data" class="level3">
 <h3 class="anchored" data-anchor-id="observed-data">Observed Data</h3>
-<p>In the actual activity, we’ll read in real data below. For now, let’s generate some fake data.</p>
+<p>Data was collected from 13 frogs from Steven’s Pond in Manchester, NH. Data from those frogs is read in and processed below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num_frogs <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">071524</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">frog_number =</span> <span class="dv">1</span><span class="sc">:</span>num_frogs,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">status =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"positive"</span>, <span class="st">"negative"</span>), </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">size =</span> num_frogs,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>), </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>num_pos <span class="ot">&lt;-</span> my_data <span class="sc">%&gt;%</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(status <span class="sc">==</span> <span class="st">"positive"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Of the "</span>, num_frogs, </span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>             <span class="st">" frogs observed, the number positive for Chytrid Fungus was "</span>, </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>             num_pos, <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>initial_frogs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_small.csv"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>num_frogs <span class="ot">&lt;-</span> initial_frogs <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>num_pos <span class="ot">&lt;-</span> initial_frogs <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(chytrid <span class="sc">==</span> <span class="st">"y"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste0</span>(<span class="st">"Of the "</span>, num_frogs, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">" frogs observed, the number positive for Chytrid Fungus was "</span>, </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>             num_pos, <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Of the 12 frogs observed, the number positive for Chytrid Fungus was 8."</code></pre>
+<pre><code>[1] "Of the 13 frogs observed, the number positive for Chytrid Fungus was 9."</code></pre>
 </div>
 </div>
 </section>
@@ -2229,7 +2226,7 @@ Reflection Question
 <p>How does this prior compare to our original prior? Use your understanding of <code>alpha</code> and <code>beta</code> to justify what you are seeing.</p>
 </div>
 </div>
-<p>Now that you’ve built this new prior, run the code cell below to generate the observed data. Don’t make any changes to the code just yet (<strong>Note:</strong> I don’t think I want this here, but keep it for now).</p>
+<p>Now that you’ve built this new prior, we’ll have you re-run the code below to obtain the observed data from our small collection of 13 frogs from Steven’s Pond. Don’t make any changes to the code just yet.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Now run the code chunk below to use the observed data to calculate and plot the updated posterior.</p>
@@ -2267,7 +2264,7 @@ From Dr.&nbsp;Duryea
 <p>The code chunk below is set to create a weakly informative prior that assumes a population proportion of Chytrid Fungus infection of 60%, backed by a total of 10 observations. Run the code to construct and visualize this prior.</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Now that we have this prior, run the code cell below to generate the observed data. Don’t make any changes to the code just yet (<strong>Note:</strong> I don’t think I want this here, but keep it for now).</p>
+<p>Now that we have this prior, run the code cell below to obtain the larger collection of data recently processed by Dr.&nbsp;Duryea’s students.</p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Now run the code chunk below to use the observed data to calculate and plot the updated posterior.</p>
@@ -2394,6 +2391,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -2504,6 +2503,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

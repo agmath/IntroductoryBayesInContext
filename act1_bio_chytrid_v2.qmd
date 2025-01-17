@@ -17,7 +17,7 @@ toc: true
 engine: knitr
 webr:
   channel-type: 'automatic'
-  packages: ["ggplot2", "dplyr"]
+  packages: ["ggplot2", "dplyr", "readr"]
   
 filters:
   - webr
@@ -191,21 +191,21 @@ The Beta-distribution we use here is commonly used with binomial data. It is det
 
 ### Observed Data
 
-In the actual activity, we'll read in real data below. For now, let's generate some fake data.
+Data was collected from 13 frogs from Steven's Pond in Manchester, NH. Data from those frogs is read in and processed below.
 
 ```{r}
-num_frogs <- 12
-set.seed(071524)
-my_data <- tibble(
-  frog_number = 1:num_frogs,
-  status = sample(c("positive", "negative"), 
-                  size = num_frogs,
-                  prob = c(0.7, 0.3), 
-                  replace = TRUE)
-)
+#| message: false
+#| warning: false
 
-num_pos <- my_data %>%
-  filter(status == "positive") %>%
+initial_frogs <- read_csv(
+  "https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_small.csv"
+  )
+
+num_frogs <- initial_frogs %>%
+  nrow()
+
+num_pos <- initial_frogs %>%
+  filter(chytrid == "y") %>%
   nrow()
 
 print(paste0("Of the ", num_frogs, 
@@ -305,22 +305,21 @@ my_dists %>%
 How does this prior compare to our original prior? Use your understanding of `alpha` and `beta` to justify what you are seeing.
 :::
 
-Now that you've built this new prior, run the code cell below to generate the observed data. Don't make any changes to the code just yet (**Note:** I don't think I want this here, but keep it for now).
+Now that you've built this new prior, we'll have you re-run the code below to obtain the observed data from our small collection of 13 frogs from Steven's Pond. Don't make any changes to the code just yet.
 
 ```{webr-r}
-#Generate data -- will replace with code to read in actual data
-num_frogs <- 12
-set.seed(071524)
-my_data <- tibble(
-  frog_number = 1:num_frogs,
-  status = sample(c("positive", "negative"), 
-                  size = num_frogs,
-                  prob = c(0.7, 0.3), 
-                  replace = TRUE)
-)
+#| message: false
+#| warning: false
 
-num_pos <- my_data %>%
-  filter(status == "positive") %>%
+initial_frogs <- read_csv(
+  "https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_small.csv"
+  )
+
+num_frogs <- initial_frogs %>%
+  nrow()
+
+num_pos <- initial_frogs %>%
+  filter(chytrid == "y") %>%
   nrow()
 
 print(paste0("Of the ", num_frogs, 
@@ -408,27 +407,26 @@ my_dists %>%
   )
 ```
 
-Now that we have this prior, run the code cell below to generate the observed data. Don't make any changes to the code just yet (**Note:** I don't think I want this here, but keep it for now).
+Now that we have this prior, run the code cell below to obtain the larger collection of data recently processed by Dr. Duryea's students.
 
 ```{webr-r}
-#Generate data -- will replace with code to read in actual data
-num_frogs <- 157
-set.seed(072324)
-my_data <- tibble(
-  frog_number = 1:num_frogs,
-  status = sample(c("positive", "negative"), 
-                  size = num_frogs,
-                  prob = c(0.7, 0.3), 
-                  replace = TRUE)
-)
+#| message: false
+#| warning: false
 
-num_pos <- my_data %>%
-  filter(status == "positive") %>%
+new_frogs <- read_csv(
+  "https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_remaining.csv"
+  )
+
+num_new_frogs <- new_frogs %>%
   nrow()
 
-print(paste0("Of the ", num_frogs, 
-             " frogs observed, the number positive for Chytrid Fungus was ", 
-             num_pos, "."))
+num_new_pos <- new_frogs %>%
+  filter(chytrid == "y") %>%
+  nrow()
+
+print(paste0("Of the ", num_new_frogs, 
+             " new frogs observed and processed, the number positive for Chytrid Fungus was ", 
+             num_new_pos, "."))
 ```
 
 Now run the code chunk below to use the observed data to calculate and plot the updated posterior.
@@ -438,7 +436,7 @@ Now run the code chunk below to use the observed data to calculate and plot the 
 my_dists <- my_dists %>%
   mutate(
     #Compute likelihood using binomial distribution
-    likelihood = choose(num_frogs, num_pos)*pi^num_pos*(1 - pi)^(num_frogs - num_pos),
+    likelihood = choose(num_new_frogs, num_new_pos)*pi^num_new_pos*(1 - pi)^(num_new_frogs - num_new_pos),
     #Compute posterior as likelihood*prior
     post_prob = likelihood*prior_prob,
     #Normalize posterior
