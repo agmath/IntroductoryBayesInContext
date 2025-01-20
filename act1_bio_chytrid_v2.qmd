@@ -191,7 +191,7 @@ The Beta-distribution we use here is commonly used with binomial data. It is det
 
 ### Observed Data
 
-Data was collected from 13 frogs from Steven's Pond in Manchester, NH. Data from those frogs is read in and processed below.
+Data was collected from 13 frogs in Pembroke, Chichester, and Manchester, NH. Data from those frogs is read in and processed below.
 
 ```{r}
 #| message: false
