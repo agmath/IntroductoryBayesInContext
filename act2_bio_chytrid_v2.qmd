@@ -21,7 +21,7 @@ author:
 engine: knitr
 webr:
   channel-type: 'automatic'
-  packages: ["ggplot2", "dplyr", "bayesrules"]
+  packages: ["ggplot2", "dplyr", "bayesrules", "readr"]
   
 filters:
   - webr
@@ -38,13 +38,16 @@ library(patchwork)
 
 theme_set(theme_bw(base_size = 14))
 
+new_data <- read_csv(
+  "https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_remaining.csv"
+  )
 
-##Need to deal with data "read in" via webr cells not available at render time.
-##This means inline R with that data and associated values is not possible.
-##For now, I'm just adding in the values to make this work -- I'll likely 
-##pre-read data in, compute the necessary values, and then remove the data frame
-new_obs <- 157
-new_pos <- 102
+new_obs <- new_data %>%
+  nrow()
+
+new_pos <- new_data %>%
+  filter(chytrid == "y") %>%
+  nrow()
 ```
 
 <!-- ## Biology Context: Chytrid Fungus in Frogs -->
@@ -155,7 +158,7 @@ print("I've made plot_beta_binomial(), summarize_beta_binomial(), and plot_beta_
 
 In this activity, we'll simplify the process of obtaining our *posterior* distributions by using functions from the `{bayesrules}` package. *Bayes Rules! An Introduction to Bayesian Modeling*, by Johnson, Ott, and Dogucu [@bayesrulesbook] and the corresponding `{bayesrules}` R package [@bayesrulespkg] provide user-friendly functionality that we'll take advantage of.
 
-In our first activity, we began with an *uninformative prior*, represented as a beta distribution with one observed success and one failure, `beta(1, 1)`. We then updated that prior with our initially observed data including eight (8) successes out of twelve (12) observations. Using the `plot_beta_binomial()` and `summarize_beta_binomial()` functions from `{bayesrules}`, we can easily visualize and summarize the prior, likelihood, posterior, and associated statistics.
+In our first activity, we began with an *uninformative prior*, represented as a beta distribution with one observed success and one failure, `beta(1, 1)`. We then updated that prior with our initially observed data including nine (9) chytrid positive frogs out of the thirteen (13) new observations. Using the `plot_beta_binomial()` and `summarize_beta_binomial()` functions from `{bayesrules}`, we can easily visualize and summarize the prior, likelihood, posterior, and associated statistics.
 
 To use `plot_beta_binomial()`, we need to specify four arguments:
 
@@ -167,7 +170,7 @@ To use `plot_beta_binomial()`, we need to specify four arguments:
 Below is an example with our initial `beta(1, 1)` *prior* and the first set of new observations we encountered:
 
 ```{r}
-plot_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12)
+plot_beta_binomial(alpha = 1, beta = 1, y = 9, n = 13)
 ```
 
 In the plot, the prior distribution appears in yellow, while the posterior is shown in blue-green. Here, our uninformative prior results in the posterior overlapping exactly with the scaled likelihood. This is because of our choice to use the uniform prior.
@@ -178,38 +181,38 @@ To obtain summary statistics on the prior and posterior, we use the `summarize_b
 #| echo: true
 #| eval: false
 
-summarize_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12)
+summarize_beta_binomial(alpha = 1, beta = 1, y = 9, n = 13)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
 
-summarize_beta_binomial(alpha = 1, beta = 1, y = 8, n = 12) %>%
+summarize_beta_binomial(alpha = 1, beta = 1, y = 9, n = 13) %>%
   kable() %>%
   kable_styling()
 ```
 
 We'll quickly revisit the second investigation we made in that initial activity as well. You may remember that we obtained advice from an expert, indicating that we suspect that the population proportion should be near 60%, given prior research results. At that point, we re-evaluated our choice of *prior* distribution to reflect this. We chose a *weak prior*, which was still a beta distribution but with 6 previously observed successes and 4 previously observed failures. Such a prior is *weak* because it assumes information from very few previous observations.
 
-Let's plot that prior, along with the scaled likelihood and posterior distribution using `plot_beta_binomial()`. As a reminder, we'll continue to use small collection of 12 frogs, 8 of which were chytrid-positive, as our observed data. While we are at it, we'll also use `summarize_beta_binomial()` to calculate the numerical summaries for the prior and posterior distributions.
+Let's plot that prior, along with the scaled likelihood and posterior distribution using `plot_beta_binomial()`. As a reminder, we'll continue to use small collection of 13 frogs, 9 of which were chytrid-positive, as our observed data. While we are at it, we'll also use `summarize_beta_binomial()` to calculate the numerical summaries for the prior and posterior distributions.
 
 ```{r}
-plot_beta_binomial(alpha = 6, beta = 4, y = 8, n = 12)
+plot_beta_binomial(alpha = 6, beta = 4, y = 9, n = 13)
 ```
 
 ```{r}
 #| echo: true
 #| eval: false
 
-summarize_beta_binomial(alpha = 6, beta = 4, y = 8, n = 12)
+summarize_beta_binomial(alpha = 6, beta = 4, y = 9, n = 13)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
 
-summarize_beta_binomial(alpha = 6, beta = 4, y = 8, n = 12) %>%
+summarize_beta_binomial(alpha = 6, beta = 4, y = 9, n = 13) %>%
   kable() %>%
   kable_styling()
 ```
@@ -228,27 +231,26 @@ Take this opportunity to discuss what is happening "behind the scenes" when the 
 
 Through the main section of this activity, you'll explore the use of *credible intervals* (CIs), the Bayesian analog to the Frequentist's *confidence interval*. A key advantage of credible intervals is that they offer a much more intuitive interpretation. For example, with a 95% credible interval, we claim there is a 95% probability that the population parameter lies within the interval bounds.
 
-Before we get into CIs, let's get ourselves back to where we were at the end of the last activity. As you might remember, we obtained data on a larger collection of 157 observed frogs, from which there were 102 testing positive for chytrid fungus. Run the code chunk below to read in that data.
+Before we get into CIs, let's get ourselves back to where we were at the end of the last activity. As you might remember, we obtained data on a larger collection of `r new_obs` observed frogs, from which there were `r new_pos` testing positive for chytrid fungus. Run the code chunk below to read in that data.
 
 ```{webr-r}
-# We'll update with Katie's actual data from GitHub when it is available
-new_obs <- 157
-set.seed(072324)
-my_data <- tibble(
-  obs_number = 1:new_obs,
-  status = sample(c("yes", "no"), 
-                  size = new_obs,
-                  prob = c(0.7, 0.3), 
-                  replace = TRUE)
-)
+#| warning: false
+#| message: false
 
-new_pos <- my_data %>%
-  filter(status == "yes") %>%
+new_data <- read_csv(
+  "https://raw.githubusercontent.com/mcduryea/Evolution-Simulations/refs/heads/main/chytrid_remaining.csv"
+  )
+
+new_obs <- new_data %>%
+  nrow()
+
+new_pos <- new_data %>%
+  filter(chytrid == "y") %>%
   nrow()
 
 print(paste0("Of the ", new_obs, 
-             " observations, there were ", 
-             new_pos, " positive responses."))
+             " newly observed frogs, there were ", 
+             new_pos, " which tested positive for chytrid fungus."))
 ```
 
 Use the `plot_beta_binomial()` and `summarize_beta_binomial()` functions in the code cell below to update your weakly informative `beta(6, 4)` prior with these `r new_obs` observations including `r new_pos` positive outcomes.
@@ -271,7 +273,7 @@ Notice that this new data updates our prior beliefs about the population proport
 
 If you've taken a traditional (Frequentist) statistics course, you might be familiar with *confidence intervals*. These intervals aim to capture a population parameter with a prescribed level of certainty. In practice, however, interpreting these intervals can be tricky. Confidence intervals are based on a hypothetical scenario in which we take many random samples and build intervals from each; the expectation is that, over many intervals, a certain proportion (like 95% for a 95% confidence interval) would contain the true parameter.
 
-In Bayesian inference, *credible intervals* offer a simpler, probabilistic interpretation. A 90% credible interval extends from the 5th percentile to the 95th percentile of the posterior distribution. This means there's a 90% probability that the population parameter falls within these bounds, based on the prior assumption and the observed data --- no hypothetical repetitions required.
+In Bayesian inference, *credible intervals* offer a simpler, probabilistic interpretation. A 90% credible interval extends from the 5th percentile to the 95th percentile of the posterior distribution. This means there's a 90% probability that the population parameter falls within these bounds, based on the prior assumption and the observed data -- no hypothetical repetitions required.
 
 In this section of our activity, we'll compute and interpret credible intervals. To do so, we'll need a bit of information about the `qbeta()` function, which calculates "quantiles" from a beta distribution. To use `qbeta()`, we input the proportion of observations to the left of the desired quantile, along with the $\alpha$ and $\beta$ parameters defining the distribution. This returns the cutoff value at the desired quantile.
 
