@@ -64,7 +64,7 @@ Below are links to the *Introductory Bayes in Context* activities in the chytrid
 i) [Activity 1, *From the Prior to the Posterior*](https://agmath.github.io/IntroductoryBayesInContext/act1_bio_chytrid_v2.html)
 ii) [Activity 2, *Bayesian Boundaries: Investigating Credible Intervals*](https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid_v2.html)
 iii) Activity 3, *Bayesian Data Analysis: Testing Hypotheses* (coming in 2025)
-iv) Activity 4, *Hierarchical Models* (Coming in 2025)
+iv) Activity 4, *Hierarchical Models* (coming in 2025)
 
 ## Criminal Justice (Coming in 2025)
 
