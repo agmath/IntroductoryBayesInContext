@@ -27,8 +27,8 @@ The goal of *Introductory Bayes in Context* is to provide discipline-specific ac
 
 i) the notion of (and relationship between) the *prior* and *posterior*
 ii) extracting and interpreting *credible intervals* from a posterior distribution
-iii) Bayesian approaches to hypothesis tests comparing two populations 
-iv) Hierarchical models (*coming summer 2025*)
+iii) Bayesian approaches to hypothesis tests comparing two populations  (*coming 2025*)
+iv) Hierarchical models (*coming 2025*)
 
 We've developed a basic framework for these activities and are actively building versions of them in several discipline-specific contexts. See the `Context-Free` tab below for links to the activity framework. Additionally, see the discipline-specific tabs for versions of the activities developed in contexts from those disciplines. We will continue to update this page as new contexts are added. If you are interested in working with us to develop versions of these activities in your own context, check out the `Future Development` tab.
 
@@ -63,7 +63,7 @@ Below are links to the *Introductory Bayes in Context* activities in the chytrid
 
 i) [Activity 1, *From the Prior to the Posterior*](https://agmath.github.io/IntroductoryBayesInContext/act1_bio_chytrid_v2.html)
 ii) [Activity 2, *Bayesian Boundaries: Investigating Credible Intervals*](https://agmath.github.io/IntroductoryBayesInContext/act2_bio_chytrid_v2.html)
-iii) Activity 3, *Bayesian Data Analysis: Testing Hypotheses* (coming Spring 2025)
+iii) Activity 3, *Bayesian Data Analysis: Testing Hypotheses* (coming in 2025)
 iv) Activity 4, *Hierarchical Models* (Coming in 2025)
 
 ## Criminal Justice (Coming in 2025)
