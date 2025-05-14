@@ -1,5 +1,7 @@
 ## Bayesian Thinking, in Context
 
+> **Note:** I'll be reorganizing (read: organizing) this repository during summer 2025 and will be converting the notebooks to Quarto Live as well.
+
 This README contains:
 
 + [an overview of the *Bayesian Thinking, In Context* project](#overview)
